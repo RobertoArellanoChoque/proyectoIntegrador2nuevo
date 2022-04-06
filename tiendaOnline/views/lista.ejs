@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body>
+        <h1></h1>
+        <%- include('partials/menu.ejs') %>
+
+            <% for(let i=0; i<lista.length; i+=1) { %>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= lista[i].nombre %>
+                        </h5>
+                        <p class="card-text">
+                            <%=lista[i].resenia %>
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <% } %>
+    </body>
+
+</html>

@@ -1,5 +1,5 @@
 const data = require("../db/products");
-const detalleControlerr = {
+const detalleControler = {
   index: function (req, res) {
     return res.render('index', {lista: data.lista});
   },
