@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-
-const mainController = require('../controllers/mainControler')
-
-router.get("/", mainController.index);
+const menuControlaor = require('../controllers/mainController')
 
 
+router.get('/', menuControlaor.formulario);
 
-module.exports = router
+
+module.exports = router;
