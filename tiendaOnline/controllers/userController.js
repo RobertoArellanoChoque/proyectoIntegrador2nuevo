@@ -10,7 +10,7 @@ const controladorUsuarios = {
         return res.send("Ruta para crear perfil")
     },
     login: function(req, res) {
-        return res.render("login")
+        return res.send("ruta para el login del usuario")
     }
 
 }
