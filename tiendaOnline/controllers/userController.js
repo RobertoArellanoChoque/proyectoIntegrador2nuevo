@@ -9,6 +9,9 @@ const controladorUsuarios = {
     create: function (req, res) {
         return res.send("Ruta para crear perfil")
     },
+    login: function(req, res) {
+        return res.render("login")
+    }
 
 }
 

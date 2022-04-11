@@ -3,7 +3,7 @@ const books = {
         {
             description: "Business",
             //clave    : valor
-            image: "",
+            image: "img/i",
             upload: 2017,
             title: "Way of the Wolf",
         },
