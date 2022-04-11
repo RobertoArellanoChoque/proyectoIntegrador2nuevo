@@ -4,6 +4,7 @@ const menuControlaor = require('../controllers/mainController')
 
 
 router.get('/', menuControlaor.index);
+router.get('/loged', menuControlaor.show);
 
 
 
