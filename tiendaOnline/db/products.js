@@ -2,6 +2,7 @@ const books = {
     lista : [
         {
             description: "Business",
+            //clave    : valor
             image: "",
             upload: 2017,
             title: "Way of the Wolf",
@@ -63,3 +64,7 @@ const books = {
     ]};
 module.exports= books
 // preguntar acerca de la verasidad de el dato upload.
+//img src=<%=productos.img%>
+//img : "img/img1.jpg"
+// en los links, poner a las rutas correspondientes, QUE NO ROMPAN!!!
+

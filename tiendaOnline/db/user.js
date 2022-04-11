@@ -10,3 +10,4 @@ const user= {
 
 };
 // puse los datos que pide en el formulario de usuarios
+module.exports= user
