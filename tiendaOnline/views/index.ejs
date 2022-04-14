@@ -3,13 +3,20 @@
 <%- include('partials/head')%>
 
     <body>
-        <% for(let i=0; i<6; i+=1){ %>
+        <h2>INICIO DEL SITIO</h2>
 
-            <h2>
-                <%= titulo[i].title %>
-            </h2>
+        <section>
+            <% for(let i=0; i<4; i+=1){ %>
+                <article>
+                    <h3>
+                        <%= titulo[i].title %>
+                    </h3>
+                    <img src="<%= img[i].image %> " alt="">
+                    <h4>Lanzamiento: <%= lanzamiento[i].upload %> </h4>
 
-            <%}%>
+                    <%}%>
+                </article>
+        </section>
     </body>
 
 </html>
