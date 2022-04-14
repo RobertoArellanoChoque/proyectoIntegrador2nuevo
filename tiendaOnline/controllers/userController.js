@@ -1,16 +1,19 @@
+
+const user = require("../db/user")
+
 const controladorUsuarios = {
 
     index: function (req, res) {
-        return res.send("Ruta para mostrar datos del usuario")
+        return res.render('profile', {titulo: user}) //sancho
     },
     edit: function (req, res) {
-        return res.send("Ruta para editar el perfil")
+        return res.send('profileEdit')//sancho
     },
     create: function (req, res) {
-        return res.send("Ruta para crear perfil")
+        return res.send('register')//sancho
     },
     login: function(req, res) {
-        return res.send("ruta para el login del usuario")
+        return res.send("ruta para el login del usuario")//rober
     }
 
 }
