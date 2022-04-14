@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/head')%>
-<body>
-    <h1>Hola Mundo</h1>
-</body>
+
+    <body>
+        <% for(let i=0; i<6; i+=1){ %>
+
+            <h2>
+                <%= titulo[i].title %>
+            </h2>
+
+            <%}%>
+    </body>
+
 </html>
