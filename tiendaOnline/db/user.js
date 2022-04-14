@@ -1,13 +1,12 @@
 const user= {
     id: 1,
-    name: "Juan",
-    surname: "Gonzalez",
+    name: "Juan Gonzalez",
     phone: 1133556682,
     age: 55,
     email: "juangonzalez33@gmail.com",
     password: "aguanteboca1212",
     idNumber: 22546781,
-    profilePhoto: "/images/products/img-profile",
+    profilePhoto: "/images/products/img-profile.jpg",
    
 
 };
