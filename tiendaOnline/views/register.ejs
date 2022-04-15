@@ -1,1 +1,54 @@
-//formulario que contenga la info de user
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head')%>
+
+    <body <nav>
+        <%- include('partials/navBar')%>
+            </nav>
+
+
+
+
+            <h2>REGISTRARTE:</h2>
+            <h3>Es rápido y fácil.
+            </h3>
+            <form>
+
+                <div class="">
+                    <label for="exampleInputEmail1" class="">Correo Electrónico:</label>
+                    <input type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="">Nunca compartiremos su correo electrónico con nadie más.</div>
+                </div>
+                <div class="">
+                    <label for="exampleInputPassword1" class="">Contraseña:</label>
+                    <input type="password" class="" id="exampleInputPassword1">
+                </div>
+                <div class="">
+                    <label for="exampleInputPassword1" class="">Confirmar Contraseña:</label>
+                    <input type="password" class="" id="exampleInputPassword1">
+                    <div id="emailHelp" class="">Nunca compartiremos su contraseña con nadie más.</div>
+                </div>
+                <div class="">
+                    <label for="exampleInputPassword1" class="">Nombre y Apellido:</label>
+                    <input type="text" class="" id="exampleInputPassword1">
+                </div>
+                <div class="">
+                    <label for="exampleInputIdNumber" class="">Dni:</label>
+                    <input type="text" class="" id="exampleInputIdNumber">
+                </div>
+                <div class="">
+                    <label for="exampleInputIdNumber" class="">Fecha de Nacimiento:</label>
+                    <input type="date" class="" id="exampleInputDate">
+                </div>
+                <div class="">
+                    <label for="exampleInputIdNumber" class="">Teléfono</label>
+                    <input type="text" class="" id="exampleInputPhone">
+                </div>
+                <form>
+                    Profile Photo: <input type="file" name="myFile">
+                </form>
+                <button type="submit" class="">Submit</button>
+            </form>
+    </body>
+
+</html>

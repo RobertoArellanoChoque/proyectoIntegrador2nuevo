@@ -2,7 +2,7 @@ const user= {
     id: 1,
     name: "Juan Gonzalez",
     phone: 1133556682,
-    age: 55,
+    age: 12/2/1967,
     email: "juangonzalez33@gmail.com",
     password: "aguanteboca1212",
     idNumber: 22546781,
