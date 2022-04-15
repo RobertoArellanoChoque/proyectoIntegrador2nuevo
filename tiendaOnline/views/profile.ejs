@@ -5,12 +5,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head')%>
+<%- include('./partials/head') %> 
+</html>
+<body>
+    <nav>
+        <%- include('partials/navBar')%>   
+    </nav>
 
     <body>
        //poner un html con datos de manera dinamica, invocarlos
-       <h1>Editar Perfil</h1>
-       <img src="/products/img-profile.jpg">
+       <h1>Hola <%=titulo.name%></h1>
+       <img src="<%= img.profilePhoto%> ">
        <h3>Nombre:</h3>
        <h4><%=titulo.name%></h4>
        <h3>Número de teléfono:</h3>

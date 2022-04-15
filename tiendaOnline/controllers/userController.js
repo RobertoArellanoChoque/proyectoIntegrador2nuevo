@@ -4,7 +4,11 @@ const user = require("../db/user")
 const controladorUsuarios = {
 
     index: function (req, res) {
-        return res.render('profile', {titulo: user}) //sancho
+        return res.render('profile', {
+            titulo: user,
+            img: user,
+        
+        }) //sancho
     },
     edit: function (req, res) {
         return res.send('profileEdit')//sancho
