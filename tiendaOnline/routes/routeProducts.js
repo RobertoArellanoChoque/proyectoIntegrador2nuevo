@@ -7,5 +7,4 @@ router.get('/product-add', productos.create);
 router.get('/search-results', productos.show);
 
 
-
 module.exports = router;

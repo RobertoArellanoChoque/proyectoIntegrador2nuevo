@@ -9,7 +9,7 @@ const controladorProductos = {
 
     },
     show: function (req, res) {
-        return res.send('searchResults',)
+        return res.render('searchResults',)
 
     },
 
