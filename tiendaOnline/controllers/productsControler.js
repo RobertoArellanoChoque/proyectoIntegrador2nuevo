@@ -2,10 +2,10 @@ const data = require("../db/products");
 
 const controladorProductos = {
     index: function (req, res) {
-        return res.send("Esta es la ruta para listar los productos ")
+        return res.render('product')
     },
     create: function (req, res) {
-        return res.render('product',)
+        return res.render('productAdd',)
 
     },
     show: function (req, res) {

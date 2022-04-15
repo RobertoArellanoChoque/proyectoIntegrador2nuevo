@@ -7,7 +7,8 @@ var logger = require('morgan');
 
 const indexRouter = require("./routes/index")
 const productosRouter = require("./routes/routeProducts")
-const usuarioRouter = require("./routes/routeUser")
+const usuarioRouter = require("./routes/routeUser");
+const { application } = require('express');
 
 var app = express();
 
@@ -19,7 +20,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
 
 
 app.use("/", indexRouter);
