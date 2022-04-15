@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hola al index ya logeado</h1>
-    
-</body>
+<%- include('partials/head')%>
+
+    <body>
+        <nav>
+            <%- include('partials/navBar')%>
+        </nav>
+
+        <h2>Que producto te gustaria ver hoy <%= usuario.name %>
+        </h2>
+
+        <section>
+            <% for(let i=0; i<10; i+=2){ %>
+                <article>
+                    <h3>
+                        <%= titulo[i].title %>
+                    </h3>
+                    <img src="<%= img[i].image %> " alt="">
+                    <h4>Lanzamiento: <%= lanzamiento[i].upload %>
+                    </h4>
+                    <h4>Genero: <%= descripcion[i].description %>
+                    </h4>
+                    <p>Tu contacto <%= comentador[i].user %> dice: <%= comentario[i].comment %>  </p>
+
+                    <%}%>
+                </article>
+        </section>
+
+        
+    </body>
+
 </html>
