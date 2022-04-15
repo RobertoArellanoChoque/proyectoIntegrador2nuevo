@@ -13,7 +13,7 @@ const controladorUsuarios = {
         return res.send('register')//sancho
     },
     login: function(req, res) {
-        return res.send("ruta para el login del usuario")//rober
+        return res.render('login')//rober
     }
 
 }

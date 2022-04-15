@@ -12,7 +12,7 @@ const controlador = {
         })
     },
     show: function(req, res){
-        return res.send("Aqui va el menu ya logeado")
+        return res.render('indexLogin')
     }
 
 
