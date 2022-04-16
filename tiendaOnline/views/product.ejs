@@ -4,18 +4,25 @@
 <%- include('./partials/head') %>
 
 <body>
-
-	<%- include('partials/navBar') %>
-	
+	<nav>
+		<%- include('partials/navBar')%>
+	</nav>
 	<h2>Todos Los Productos</h2>
-
-		<article class="segundaSection" >
-	
-		<img class="imagen" src="../public/images/logo.png " alt="">
-		<h4>Lanzamiento:
-		</h4>
+	<section class="primerasection" >
+            
+		<% for(let i=1; i<10; i+=2){ %>
+			<article class="segundaSection" >
+			<h3 class=tituoloLibro >
+				<%= titulo[i].title %>
+			</h3>
+			<img class="imagen" src="<%= img[i].image %> " alt="">
+			<h4>Lanzamiento: <%= lanzamiento[i].upload %>
+			</h4>
 		</article>
-
+			<%}%>
+	
+</section>
+	
 
 	
 </body>	
