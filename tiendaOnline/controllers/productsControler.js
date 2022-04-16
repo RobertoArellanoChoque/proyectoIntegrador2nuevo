@@ -3,6 +3,7 @@ const user = require("../db/user");
 const controladorProductos = {
     index: function (req, res) {
         return res.render('product', {
+            lista: products,
             titulo: products.lista,
             img: products.lista,
             lanzamiento: products.lista,
