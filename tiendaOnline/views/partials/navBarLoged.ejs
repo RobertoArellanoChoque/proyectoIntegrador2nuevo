@@ -1,11 +1,11 @@
 <div class="flexDeNavegador">
-    <h1>
-        <a href="/loged">SANCHO'S LIBRERY</a>
+    <h1 class="logoPagina" >
+        <a href="/loged" class="letrasLogo" >SANCHO'S LIBRERY</a>
     </h1>
     <div class="flexDeNavegadorHijo" id="">
         <ul class="linksDeNav" type="none">
             <li class="">
-                <a class="linksDeNav" aria-current="page" href="/usuario"><%= usuario.name %> </a>
+                <a class="linksDeNav" aria-current="page" href="/usuario"> <span class="material-icons" >&#Xe7ff;</span> : <%= usuario.name %> </a>
             </li>
             <li class="">
                 <a class="linksDeNav" href="/usuario/profile-edit">EDITAR PERFIL</a>
@@ -17,7 +17,7 @@
                 <a class="linksDeNav" href="/productos/product-add">AGREGAR PRODUCTOS</a>
             </li>
             <li>
-                <a class="linksDeNav" href="/">LOG OUT</a>
+                <a class="linksDeNav" href="/">CERRAS SESIÓN</a>
             </li>
         </ul>
         <form class="" action="/productos/search-results">
