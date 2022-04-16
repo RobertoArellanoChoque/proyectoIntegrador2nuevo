@@ -8,7 +8,9 @@ const controlador = {
         return res.render('index',{
             titulo: products.lista,
             img: products.lista,
-            lanzamiento: products.lista
+            lanzamiento: products.lista,
+            usuario: user,
+            
         
         
         })

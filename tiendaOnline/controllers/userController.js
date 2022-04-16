@@ -7,6 +7,7 @@ const controladorUsuarios = {
         return res.render('profile', {
             titulo: user,
             img: user,
+            usuario: user,
 
         }) //sancho
     },
@@ -14,11 +15,15 @@ const controladorUsuarios = {
         return res.render('profileEdit', {
             info: user,
             img: user,
+            usuario: user,
         }//sancho
         )
     },
     create: function (req, res) {
-        return res.render('register')//sancho
+        return res.render('register', {
+            usuario: user,
+
+        })//sancho
     },
     login: function (req, res) {
         return res.render('login')//rober
