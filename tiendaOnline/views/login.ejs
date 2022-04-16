@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %> 
+<%- include('./partials/head') %>
+
 </html>
+
 <body>
-    <nav>
-        <%- include('partials/navBar')%>   
-    </nav>
+  <nav>
+    <%- include('partials/navBar')%>
+  </nav>
 
-    <h2>INGRESA TU USUARIO</h2>
+  <h2>INGRESA TU USUARIO</h2>
 
-    <form action="/usuario" method="get" class="">
-        <div class="">
-          <label for="exampleInputEmail1" class="">Email</label>
-          <input type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="" class="">Nunca compartiremos tu información personal</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
-        </div>
-        <button type="submit" class="btn btn-primary">INICIAR SESIÓN</button>
-      </form>
 
-      
-    
-    
+  <section class="formulario">
+
+    <form action="/usuario" method="get" class="formularioPrincpal">
+      <div class="cajaFormulario">
+        <label for="exampleInputEmail1" class="label">Email</label>
+        <input type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="" class="label">Nunca compartiremos tu información personal</div>
+      </div>
+      <div class="cajaFormulario">
+        <label for="exampleInputPassword1" class="label">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="cajaFormulario">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="label" for="">Recuerdame</label>
+      </div>
+      <div class="cajaFormulario" >
+        <button type="submit" class="label2">INICIAR SESIÓN</button>
+      </div>
+    </form>
+
+  </section>
+
+
+
 </body>
-</html>
 
+</html>
