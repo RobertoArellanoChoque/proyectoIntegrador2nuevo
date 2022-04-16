@@ -4,30 +4,49 @@
 
     <body>
         <nav>
-        <%- include('partials/navBarLoged') %> 
+            <%- include('partials/navBarLoged') %>
         </nav>
 
-        <h2>Que producto te gustaria ver hoy <%= usuario.name %>
-        </h2>
+        <h2>Que producto te gustaria ver hoy <%= usuario.name %> ?</h2>
 
-        <section >
-            <% for(let i=0; i<10; i+=2){ %>
-                <article>
-                    <h3>
-                        <%= titulo[i].title %>
-                    </h3>
-                    <img class="imagen"  src="<%= img[i].image %> " alt="">
-                    <h4>Lanzamiento: <%= lanzamiento[i].upload %>
-                    </h4>
-                    <h4>Genero: <%= descripcion[i].description %>
-                    </h4>
-                    <p>Tu contacto <%= comentador[i].user %> dice: <%= comentario[i].comment %>  </p>
+        <h3>Tus contactos leyerro recientemte..</h3>
 
-                    <%}%>
-                </article>
-        </section>
-
+        <section class="primerasection" >
+            
+            <% for(let i=0; i<6; i+=2){ %>
+                <article class="segundaSection">
+                <h4 class=tituoloLibro >
+                    <%= titulo[i].title %>
+                </h4>
+                <h4> Género: <%= descripcion[i].description %> </h4>
+                <img class="imagen" src="<%= img[i].image %> " alt="">
+                <h4>Lanzamiento: <%= lanzamiento[i].upload %>
+                </h4>
+                <h4><%= comentador[i].user%> comento: <%= comentario[i].comment %>  </h4>
+            </article>
+                <%}%>
         
+    </section>
+
+    <h3>Aun no leiste</h3>
+
+    <section class="primerasection" >
+            
+        <% for(let i=1; i<10; i+=3){ %>
+            <article class="segundaSection" >
+            <h4 class=tituoloLibro >
+                <%= titulo[i].title %>
+            </h4>
+            <h4> Género: <%= descripcion[i].description %> </h4>
+            <img class="imagen" src="<%= img[i].image %> " alt="">
+            <h4>Lanzamiento: <%= lanzamiento[i].upload %>
+            </h4>
+            <h4><%= comentador[i].user%> comento: <%= comentario[i].comment %>  </h4>
+        </article>
+            <%}%>
+    
+</section>
+
     </body>
 
 </html>

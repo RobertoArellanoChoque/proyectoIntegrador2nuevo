@@ -135,8 +135,17 @@ color: white;
 
 .primerasection{
   display: flex;
+  align-items: center;
  
   
+}
+
+.segundaSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(197, 196, 196);
+  margin: 10px;
 }
 
 .tituoloLibro{
@@ -144,6 +153,26 @@ color: white;
 text-align: center;
 
 }
+
+/*CSS Index Logeado*/
+
+.secPadre{
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  align-items: center;
+}
+
+.secHijo{
+  display: flex;
+  flex-direction: column;
+  background-color: blueviolet;
+  align-items: center;
+  margin: 30px;
+  
+}
+
+
 
 
 
