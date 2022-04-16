@@ -10,13 +10,13 @@
         <h2>Que producto te gustaria ver hoy <%= usuario.name %>
         </h2>
 
-        <section>
+        <section >
             <% for(let i=0; i<10; i+=2){ %>
                 <article>
                     <h3>
                         <%= titulo[i].title %>
                     </h3>
-                    <img src="<%= img[i].image %> " alt="">
+                    <img class="imagen"  src="<%= img[i].image %> " alt="">
                     <h4>Lanzamiento: <%= lanzamiento[i].upload %>
                     </h4>
                     <h4>Genero: <%= descripcion[i].description %>

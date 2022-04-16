@@ -4,21 +4,23 @@
 
     <body>
         <nav>
-            <%- include('partials/navBar')%>   
+            <%- include('partials/navBar')%>
         </nav>
         <h2>INICIO DEL SITIO</h2>
 
-        <section>
-            <% for(let i=0; i<4; i+=1){ %>
-                <article>
-                    <h3>
+        <section class="primerasection" >
+            
+                <% for(let i=1; i<8; i+=2){ %>
+                    <article>
+                    <h3 class=tituoloprincipaldepelicula >
                         <%= titulo[i].title %>
                     </h3>
-                    <img src="<%= img[i].image %> " alt="">
-                    <h4>Lanzamiento: <%= lanzamiento[i].upload %> </h4>
-
-                    <%}%>
+                    <img class="imagen" src="<%= img[i].image %> " alt="">
+                    <h4>Lanzamiento: <%= lanzamiento[i].upload %>
+                    </h4>
                 </article>
+                    <%}%>
+            
         </section>
     </body>
 

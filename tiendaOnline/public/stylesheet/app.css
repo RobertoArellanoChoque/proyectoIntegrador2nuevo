@@ -17,22 +17,24 @@ body {
   margin: 10px;
 
 }
+
 .flexDeNavegadorHijo {
 
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 
 }
 
-.linksDeNav{
+.linksDeNav {
   display: flex;
   justify-content: space-around;
 }
+
 .linksDeNav {
   margin: 7px;
   color: snow;
 
-  
+
 }
 
 
@@ -58,3 +60,20 @@ align-items: center;
   justify-content: center;
 
 }
+
+/*css del index*/
+.imagen {
+  width: auto;
+  height: auto;
+  width: 250px;
+  height: 350px;
+  margin: 10px;
+
+}
+
+.primerasection{
+  display: flex;
+ 
+  
+}
+
