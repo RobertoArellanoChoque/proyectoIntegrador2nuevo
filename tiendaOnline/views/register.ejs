@@ -2,54 +2,58 @@
 <html lang="en">
 <%- include('partials/head')%>
 
-    <body <nav>
-        <%- include('partials/navBar')%>
-            </nav>
+    <body>
+        <nav>
+            <%- include('partials/navBar')%>
+        </nav>
 
 
 
 
-            <h2>REGISTRARTE:</h2>
-            <h3>Es rápido y fácil.
-            </h3>
-            <form action="/usuario">
+        <h2 class="tituloForm">REGISTRATE:</h2>
+        <h3 class="tituloForm">Es rápido y fácil.
+        </h3>
+        <section class="formulario">
+            <form action="/usuario" class="formularioPrincpal">
 
-                <div class="">
-                    <label for="exampleInputEmail1" class="">Correo Electrónico:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputEmail1" class="label">Correo Electrónico:</label>
                     <input type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="">Nunca compartiremos su correo electrónico con nadie más.</div>
+                    <div id="emailHelp" class="letrasBold">Nunca compartiremos su correo electrónico con nadie más.</div>
                 </div>
-                <div class="">
-                    <label for="exampleInputPassword1" class="">Contraseña:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputPassword1" class="label">Contraseña:</label>
                     <input type="password" class="" id="exampleInputPassword1">
                 </div>
-                <div class="">
-                    <label for="exampleInputPassword1" class="">Confirmar Contraseña:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputPassword1" class="label">Confirmar Contraseña:</label>
                     <input type="password" class="" id="exampleInputPassword1">
-                    <div id="emailHelp" class="">Nunca compartiremos su contraseña con nadie más.</div>
+                    <div id="emailHelp" class="letrasBold">Nunca compartiremos su contraseña con nadie más.</div>
                 </div>
-                <div class="">
-                    <label for="exampleInputPassword1" class="">Nombre y Apellido:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputPassword1" class="label">Nombre y Apellido:</label>
                     <input type="text" class="" id="exampleInputPassword1">
                 </div>
-                <div class="">
-                    <label for="exampleInputIdNumber" class="">Dni:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputIdNumber" class="label">Dni:</label>
                     <input type="text" class="" id="exampleInputIdNumber">
                 </div>
-                <div class="">
-                    <label for="exampleInputIdNumber" class="">Fecha de Nacimiento:</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputIdNumber" class="label">Fecha de Nacimiento:</label>
                     <input type="date" class="" id="exampleInputDate">
                 </div>
-                <div class="">
-                    <label for="exampleInputIdNumber" class="">Teléfono</label>
+                <div class="cajaFormulario">
+                    <label for="exampleInputIdNumber" class="label">Teléfono</label>
                     <input type="text" class="" id="exampleInputPhone">
                 </div>
-                <div class="">
-                    Profile Photo: <input type="file" name="myFile">
+                <div class="cajaFormulario">
+                    <label for="exampleInputIdNumber" class="label"> Profile Photo:</label>
+                     <input type="file" name="myFile">
                 </div>
-               
+
                 <button type="submit" class="">Submit</button>
             </form>
+        </section>
     </body>
 
 </html>

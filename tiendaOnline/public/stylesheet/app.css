@@ -170,7 +170,56 @@ text-align: center;
   
 }
 
+/* CSS de Register */
 
+.formulario{
+  display: flex;
+  justify-content: center;
+  padding:20px;
+  align-items: center;
+  
+  
+  }
+  
+  .formularioPrincpal {
+  background-color: rgb(110, 110, 110);
+  padding: 50px;
+  
+  
+  }
+  
+  
+  
+  .cajaFormulario{
+  margin: 20px;
+  
+  }
+  
+  .label{
+  font-size: 20px;
+  color: white;
+  
+  }
+  
+  .label2 {
+    font-size: 20px;
+    color: black;
+    background-color: white;
+  
+  }
 
+.tituloForm{
+  text-align: center;
+}
+
+.letrasBold{
+  font-weight: bold;
+}
+
+/* CSS de Profile */
+
+.imgProfile{
+  border-radius: 50%;
+}
 
 
