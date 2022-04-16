@@ -1,28 +1,35 @@
 <div class="flexDeNavegador">
-    <h1 class="logoPagina" >
-        <a href="/loged" class="letrasLogo" >SANCHO'S LIBRERY</a>
+    <h1 class="logoPagina">
+        <a href="/loged" class="letrasLogo">SANCHO'S LIBRERY</a>
     </h1>
     <div class="flexDeNavegadorHijo" id="">
+        <form class="" action="/productos/search-results">
+            <input class="" type="search" placeholder="Buscar productos marcas y más.." aria-label="Search">
+            <button class="" type="submit">Search</button>
+        </form>
         <ul class="linksDeNav" type="none">
-            <li class="">
-                <a class="linksDeNav" aria-current="page" href="/usuario"> <span class="material-icons" >&#Xe7ff;</span> : <%= usuario.name %> </a>
+            <li>
+                <a class="logoUsuario" aria-current="page" href="/usuario">
+                    <span class="material-icons">&#Xe7ff;</span>: <%= usuario.name %>
+                </a>
             </li>
             <li class="">
                 <a class="linksDeNav" href="/usuario/profile-edit">EDITAR PERFIL</a>
             </li>
+        </ul>
+        <ul class="linksDeNav" type="none">
             <li>
                 <a class="linksDeNav" href="/loged">TODOS LOS PRODUCTOS</a>
             </li>
             <li>
                 <a class="linksDeNav" href="/productos/product-add">AGREGAR PRODUCTOS</a>
             </li>
+        </ul>
+        <ul class="linksDeNav" type="none">
             <li>
                 <a class="linksDeNav" href="/">CERRAS SESIÓN</a>
             </li>
         </ul>
-        <form class="" action="/productos/search-results">
-            <input class="" type="search" placeholder="Buscar productos marcas y más.." aria-label="Search">
-            <button class="" type="submit">Search</button>
-        </form>
+
     </div>
 </div>
