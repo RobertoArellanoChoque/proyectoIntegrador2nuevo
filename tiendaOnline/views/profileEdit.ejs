@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+
+
+    <body>
+        <nav>
+            <%- include('partials/navBarLoged')%>
+        </nav>
+
+        <form  class="">
+
+            <h2>Edita tu Perfil</h2>
+            <h4>Nombre y Apellido:</h4>
+            <div>
+                <input class="" type="text" placeholder="<%=info.name%> " aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>Teléfono:</h4>
+
+            <div>
+                <input class="" type="text" placeholder="<%=info.phone%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>Fecha de Nacimiento:</h4>
+            <div>
+                <input class="" type="text" placeholder="<%= info.age%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>Correo Electrónico:</h4>
+            <div>
+                <input class="" type="text" placeholder="<%= info.email%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>Contraseña:</h4>
+            <div>
+                <input class="" type="text" placeholder="<%= info.password%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>
+                <h4>DNI:</h4>
+            </h4>
+            <div>
+                <input class="" type="text" placeholder="<%=info.idNumber%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <h4>Foto de Perfil:</h4>
+            <div>
+                <input class="" type="text" placeholder="<%=info.profilePhoto%>" aria-label="Search">
+                <button class="" type="submit">Editar✏️⚙️</button>
+            </div>
+            <div>
+                <button type="submit"  class="">Submit</button>
+            </div>
+        </form>
+    </body>
+
+</html>

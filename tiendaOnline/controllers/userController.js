@@ -7,16 +7,20 @@ const controladorUsuarios = {
         return res.render('profile', {
             titulo: user,
             img: user,
-        
+
         }) //sancho
     },
     edit: function (req, res) {
-        return res.send('profileEdit')//sancho
+        return res.render('profileEdit', {
+            info: user,
+            img: user,
+        }//sancho
+        )
     },
     create: function (req, res) {
         return res.render('register')//sancho
     },
-    login: function(req, res) {
+    login: function (req, res) {
         return res.render('login')//rober
     }
 

@@ -1,30 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %> 
+<%- include('./partials/head') %>
+
 </html>
+
 <body>
     <nav>
-        <%- include('partials/navBarLoged')%>   
+        <%- include('partials/navBarLoged')%>
     </nav>
 
-    <body>
-  
-       <h1>Hola <%=titulo.name%></h1>
-       <img src="<%= img.profilePhoto%> ">
-       <h3>Nombre:</h3>
-       <h4><%=titulo.name%></h4>
-       <h3>Número de teléfono:</h3>
-       <h4><%=titulo.phone%></h4>
-       <h3>Fecha de Nacimiento:</h3>
-       <h4><%=titulo.age%></h4>
-       <h3>Correo electrónico:</h3>
-       <h4><%=titulo.email%></h4>
-       <h3>Contraseña:</h3>
-       <h4><%=titulo.password%></h4>
-       <h3>DNI:</h3>
-       <h4><%=titulo.idNumber%></h4>
-    </body>
+
+
+    <h1>Hola <%=titulo.name%>
+    </h1>
+    <img src="<%= img.profilePhoto%> ">
+    <h3>Nombre:</h3>
+    <h4>
+        <%=titulo.name%>
+    </h4>
+    <h3>Número de teléfono:</h3>
+    <h4>
+        <%=titulo.phone%>
+    </h4>
+    <h3>Fecha de Nacimiento:</h3>
+    <h4>
+        <%=titulo.age%>
+    </h4>
+    <h3>Correo electrónico:</h3>
+    <h4>
+        <%=titulo.email%>
+    </h4>
+    <h3>Contraseña:</h3>
+    <h4>
+        <%=titulo.password%>
+    </h4>
+    <h3>DNI:</h3>
+    <h4>
+        <%=titulo.idNumber%>
+    </h4>
+</body>
 
 
 </html>
