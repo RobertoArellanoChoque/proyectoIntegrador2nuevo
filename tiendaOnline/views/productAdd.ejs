@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
 
 <%- include('./partials/head') %>
 
 <body>
 	
-	<h2>Agregar Producto</h2>
+	<nav>
+		<%- include('partials/navBar')%>
+	</nav>
+	<section class="formulario">
+
+		<form action="/usuario" method="get" class="formularioPrincpal">
+		  <div class="cajaFormulario">
+			<label for="exampleInputEmail1" class="label">Nombre Del Productos</label>
+			<input type="text" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
+		  </div>
+		  <div class="cajaFormulario">
+			<label for="exampleInputPassword1" class="label">Año de Lanzamiento</label>
+			<input type="text" class="form-control" id="exampleInputPassword1">
+		  </div>
+		  <div class="cajaFormulario">
+			<label class="label" for="">imagen</label>
+			<input type="file" class="form-check-input" id="exampleCheck1">
+		  </div>
+		  <div class="cajaFormulario" >
+			<button type="submit" class="label2">Cargar Producto</button>
+		  </div>
+		</form>
+	
+	  </section>
+
+	
 
 </body>
 
