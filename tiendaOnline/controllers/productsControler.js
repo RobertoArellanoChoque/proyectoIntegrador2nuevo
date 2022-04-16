@@ -1,4 +1,4 @@
-const data = require("../db/products");
+const products = require("../db/products");
 const user = require("../db/user");
 const controladorProductos = {
     index: function (req, res) {
