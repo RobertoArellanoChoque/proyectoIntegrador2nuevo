@@ -146,6 +146,9 @@ body {
   align-items: center;
   background-color: rgb(255, 255, 255);
   margin: 10px;
+  padding: 15px;
+  width: 320px;
+  height: 690px;
 }
 
 .tituoloLibro {
@@ -156,6 +159,18 @@ body {
 }
 .centrado{
   text-align: center;
+}
+
+.segundaSectionInicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  padding: 15px;
+  width: 320px;
+  height: 550px;
+
 }
 
 /*CSS Index Logeado*/
