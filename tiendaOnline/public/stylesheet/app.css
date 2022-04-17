@@ -3,14 +3,14 @@
 
 body {
 
-  background-color: snow;
+  background-color: rgb(187, 187, 187);
 
 }
 
 /*CSS para Nav*/
 
 .flexDeNavegador {
-  background-color: #3cae3c;
+  background-color: #3c6bae;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -30,7 +30,7 @@ body {
   justify-content: space-around;
   text-decoration: none;
   font-size: 19px;
- 
+
 
 }
 
@@ -40,35 +40,34 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
+  font-family: 'Roboto Condensed', sans-serif;
+
 
 
 }
 
-.linksDeNav1{
+.linksDeNav1 {
   margin: 5px;
   color: black;
   display: flex;
-
-
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-.logoPagina{
-font-size: 30px;
-margin: 20px;
-
+.logoPagina {
+  font-size: 30px;
+  margin: 20px;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
-.letrasLogo{
+.letrasLogo {
   text-decoration: none;
   color: black;
 }
 
-.logoUsuario{
-display: flex;
-text-decoration: none;
-color: black;
+.logoUsuario {
+  display: flex;
+  text-decoration: none;
+  color: black;
 
 }
 
@@ -85,32 +84,32 @@ color: black;
 
 /* CSS de Login */
 
-.formulario{
-display: flex;
-justify-content: center;
-padding:20px;
-align-items: center;
+.formulario {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
 
 
 }
 
 .formularioPrincpal {
-background-color: rgb(110, 110, 110);
-padding: 50px;
+  background-color: rgb(130, 130, 130);
+  padding: 50px;
 
 
 }
 
 
 
-.cajaFormulario{
-margin: 20px;
+.cajaFormulario {
+  margin: 20px;
 
 }
 
-.label{
-font-size: 20px;
-color: white;
+.label {
+  font-size: 20px;
+  color: white;
 
 }
 
@@ -133,94 +132,111 @@ color: white;
 
 }
 
-.primerasection{
+.primerasection {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
- 
-  
+
+
 }
+
 .segundaSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(197, 196, 196);
+  background-color: rgb(255, 255, 255);
   margin: 10px;
 }
-.tituoloLibro{
 
-text-align: center;
+.tituoloLibro {
 
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+
+}
+.centrado{
+  text-align: center;
 }
 
 /*CSS Index Logeado*/
 
-.secPadre{
+.secPadre {
   display: flex;
   flex-direction: column;
   background-color: aqua;
   align-items: center;
 }
 
-.secHijo{
+.secHijo {
   display: flex;
   flex-direction: column;
   background-color: blueviolet;
   align-items: center;
   margin: 30px;
-  
+
 }
 
 /* CSS de Register */
 
-.formulario{
+.formulario {
   display: flex;
   justify-content: center;
-  padding:20px;
+  padding: 20px;
   align-items: center;
-  
-  
-  }
-  
-  .formularioPrincpal {
+
+
+}
+
+.formularioPrincpal {
   background-color: rgb(110, 110, 110);
   padding: 50px;
-  
-  
-  }
-  
-  
-  
-  .cajaFormulario{
+
+
+}
+
+
+
+.cajaFormulario {
   margin: 20px;
-  
-  }
-  
-  .label{
+
+}
+
+.label {
   font-size: 20px;
   color: white;
-  
-  }
-  
-  .label2 {
-    font-size: 20px;
-    color: black;
-    background-color: white;
-  
-  }
 
-.tituloForm{
+}
+
+.label2 {
+  font-size: 20px;
+  color: black;
+  background-color: white;
+
+}
+
+.tituloForm {
   text-align: center;
 }
 
-.letrasBold{
+.letrasBold {
   font-weight: bold;
 }
 
 /* CSS de Profile */
 
-.imgProfile{
+.imgProfile {
   border-radius: 50%;
 }
 
+/* CSS de Letras */
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
+h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h4 {
+  font-family: 'Playfair Display', serif;
+}
