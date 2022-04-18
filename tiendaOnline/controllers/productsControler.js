@@ -1,5 +1,6 @@
 const products = require("../db/products");
 const user = require("../db/user");
+const imagen = require("../db/ImagenesExtras");
 const controladorProductos = {
     index: function (req, res) {
         return res.render('product', {
@@ -8,6 +9,7 @@ const controladorProductos = {
             img: products.lista,
             lanzamiento: products.lista,
             usuario: user,
+            imag: imagen,
            
         })
     },
