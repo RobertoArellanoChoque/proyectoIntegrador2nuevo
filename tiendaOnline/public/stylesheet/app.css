@@ -257,3 +257,18 @@ h3 {
 h4 {
   font-family: 'Playfair Display', serif;
 }
+
+/*footer css*/
+footer {
+  background-color: #3c6bae;
+}
+.tarjetas{
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.inFooter{
+  font-family: 'Playfair Display', serif;
+}
