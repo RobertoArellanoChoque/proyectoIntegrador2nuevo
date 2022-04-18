@@ -243,11 +243,6 @@ a {
   font-weight: bold;
 }
 
-/* CSS de Profile */
-
-.imgProfile {
-  border-radius: 50%;
-}
 
 /* CSS de Letras */
 h2 {
@@ -275,4 +270,30 @@ footer {
 
 .inFooter{
   font-family: 'Playfair Display', serif;
+}
+
+/*====== Profile ======*/
+
+.profilePadre{
+  max-width: 1920px;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  margin: 1px;
+  padding: 2px;
+}
+
+.imgProfile{
+  border-radius: 50%;
+  margin: -15%;
+}
+
+.profileHijo{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0.50%;
 }

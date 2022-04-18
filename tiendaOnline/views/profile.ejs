@@ -9,35 +9,30 @@
         <%- include('partials/navBarLoged')%>
     </nav>
 
-
-
-    <h1>Hola <%=titulo.name%>
-    </h1>
-    <img class="imgProfile" src="<%= img.profilePhoto%> ">
-    <h3>Nombre:</h3>
-    <h4>
-        <%=titulo.name%>
-    </h4>
-    <h3>Número de teléfono:</h3>
-    <h4>
-        <%=titulo.phone%>
-    </h4>
-    <h3>Fecha de Nacimiento:</h3>
-    <h4>
-        <%=titulo.age%>
-    </h4>
-    <h3>Correo electrónico:</h3>
-    <h4>
-        <%=titulo.email%>
-    </h4>
-    <h3>Contraseña:</h3>
-    <h4>
-        <%=titulo.password%>
-    </h4>
-    <h3>DNI:</h3>
-    <h4>
-        <%=titulo.idNumber%>
-    </h4>
+    <h2>Hola <%=titulo.name%></h2>
+<Div class="contenedorP">
+    <section class="profilePadre">
+        
+        <article >
+            <img class="imgProfile" src="<%= img.profilePhoto%> ">
+        </article>
+        <article class="profileHijo">
+            <h3>Nombre:</h3>
+            <h4>
+                <%=titulo.name%>
+            </h4>
+            <h3>Número de teléfono:</h3>
+            <h4>
+                <%=titulo.phone%>
+            </h4>
+            <h3>Fecha de Nacimiento:</h3>
+            <h4>
+                <%=titulo.age%>
+            </h4>
+           
+        </article>
+    </section>
+</Div>
 </body>
 <div class="centrado">
     <%- include('partials/footer')%>
