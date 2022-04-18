@@ -7,7 +7,7 @@
             <%- include('partials/navBar')%>
         </nav>
         <h2 class="centrado">INICIO DEL SITIO</h2>
-    <a href="/productos">
+    
             <section class="primerasection" >
                 
                     <% for(let i=1; i<10; i+=2){ %>
@@ -15,14 +15,15 @@
                         <h3 class=tituoloLibro >
                             <%= titulo[i].title %>
                         </h3>
+                        <a href="/productos">
                         <img class="imagen" src="<%= img[i].image %> " alt="">
+                        </a>
                         <h4>Lanzamiento: <%= lanzamiento[i].upload %>
                         </h4>
                     </article>
                         <%}%>
                 
             </section>
-        </a>
         <div class="centrado">
             <%- include('partials/footer')%>
          </div>
