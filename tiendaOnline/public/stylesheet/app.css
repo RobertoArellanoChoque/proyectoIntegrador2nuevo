@@ -132,6 +132,10 @@ body {
 
 }
 
+a {
+  text-decoration: none;
+}
+
 .primerasection {
   display: flex;
   align-items: center;

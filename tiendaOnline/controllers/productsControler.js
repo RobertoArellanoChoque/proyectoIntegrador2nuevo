@@ -23,6 +23,13 @@ const controladorProductos = {
         return res.render('searchResults',)
 
     },
+    detail: function(req, res){
+        return res.render('detalle',{
+            titulo: products.lista,
+            img: products.lista,
+            lanzamiento: products.lista,
+        })
+    }
 
 
 

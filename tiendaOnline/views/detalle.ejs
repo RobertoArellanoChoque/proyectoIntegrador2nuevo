@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('./partials/head') %>
+
+<body>
+    <nav>
+        <%- include('partials/navBar')%>
+    </nav>
+	
+    <% for(let i=0; i<1; i+=1){ %>
+        <article class="segundaSection" >
+        <h3 class=tituoloLibro >
+            <%= titulo[i].title %>
+        </h3>
+        <img class="imagen" src="<%= img[i].image %> " alt="">
+        <h4>Lanzamiento: <%= lanzamiento[i].upload %>
+        </h4>
+    </article>
+        <%}%>
+    
+    <div class="centrado">
+        <%- include('partials/footer')%>
+     </div>
+</body>
+
+</html>
