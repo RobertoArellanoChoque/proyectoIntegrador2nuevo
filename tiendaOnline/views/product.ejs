@@ -12,15 +12,15 @@
 	<h2 class="centrado">Todos Los Productos</h2>
 			<section class="primerasection" >
 				
-					<% for(let i=0; i<lista.lista.length; i+=1){ %>
+					<% for(let i=0; i<lista.length; i+=1){ %>
 						<article class="segundaSection" >
 						<h3 class=tituoloLibro >
-							<%= titulo[i].title %>
+							<%= lista[i].title %>
 						</h3>
 						<a href="/productos/detalle">
-						<img class="imagen" src="<%= img[i].image %> " alt="">
+						<img class="imagen" src="<%= lista[i].image %> " alt="">
 						</a>
-						<h4>Lanzamiento: <%= lanzamiento[i].upload %>
+						<h4>Lanzamiento: <%= lista[i].upload %>
 						</h4>
 					</article>
 						<%}%>

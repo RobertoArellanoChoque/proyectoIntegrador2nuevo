@@ -4,12 +4,12 @@ const imagen = require("../db/ImagenesExtras");
 const controladorProductos = {
     index: function (req, res) {
         return res.render('product', {
-            lista: products,
-            titulo: products.lista,
-            img: products.lista,
-            lanzamiento: products.lista,
-            usuario: user,
-            imag: imagen,
+            lista: products.lista,
+            //titulo: products.lista,
+//img: products.lista,
+            //lanzamiento: products.lista,
+           // usuario: user,
+            imag: imagen
            
         })
     },
