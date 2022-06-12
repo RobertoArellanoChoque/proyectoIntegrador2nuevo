@@ -1,32 +1,18 @@
-const products = require("../db/products");
-const user = require("../db/user");
-const comentarios = require("../db/comments")
+const db = require('../database/models/User');
 
 
-const controlador = {
-    index: function(req, res){
-        return res.render('index',{
-            titulo: products.lista,
-            img: products.lista,
-            lanzamiento: products.lista,
-            usuario: user,
-            
-        
-        
-        })
+
+
+module.exports = {
+    index: (req, res) => {
+        db.Users.findAll()
+            .then(resultado => {
+                return res.send(resultado)
+            })
     },
-    show: function(req, res){
-        return res.render('indexLogin', {
-            usuario: user,
-            titulo: products.lista,
-            img: products.lista,
-            lanzamiento: products.lista,
-            descripcion: products.lista,
-            comentador: comentarios.lista,
-            comentario: comentarios.lista,
-        
-        
-        })
+
+    show: function (req, res) {
+        return res.send('Hola mundo');
     }
 
 
@@ -35,4 +21,4 @@ const controlador = {
 
 
 
-module.exports = controlador
+

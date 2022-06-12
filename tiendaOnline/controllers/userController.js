@@ -1,32 +1,16 @@
-
-const user = require("../db/user")
-
 const controladorUsuarios = {
 
     index: function (req, res) {
-        return res.render('profile', {
-            titulo: user,
-            img: user,
-            usuario: user,
-
-        }) //sancho
+        return res.send('Hola mundo');
     },
     edit: function (req, res) {
-        return res.render('profileEdit', {
-            info: user,
-            img: user,
-            usuario: user,
-        }//sancho
-        )
+        return res.send('Hola mundo');
     },
     create: function (req, res) {
-        return res.render('register', {
-            usuario: user,
-
-        })//sancho
+        return res.send('Hola mundo');
     },
     login: function (req, res) {
-        return res.render('login')//rober
+        return res.send('Hola mundo');
     }
 
 }

@@ -1,34 +1,17 @@
-const products = require("../db/products");
-const user = require("../db/user");
-const imagen = require("../db/ImagenesExtras");
 const controladorProductos = {
     index: function (req, res) {
-        return res.render('product', {
-            lista: products.lista,
-            //titulo: products.lista,
-//img: products.lista,
-            //lanzamiento: products.lista,
-           // usuario: user,
-            imag: imagen
-           
-        })
+        return res.send('Hola mundo');
     },
     create: function (req, res) {
-        return res.render('productAdd', {
-            usuario: user,
-        })
+        return res.send('Hola mundo');
 
     },
     show: function (req, res) {
-        return res.render('searchResults',)
+        return res.send('Hola mundo');
 
     },
     detail: function(req, res){
-        return res.render('detalle',{
-            titulo: products.lista,
-            img: products.lista,
-            lanzamiento: products.lista,
-        })
+        return res.send('Hola mund');
     }
 
 
