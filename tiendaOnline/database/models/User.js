@@ -20,8 +20,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false
         },
-        fechas_de_nacimiento: {
-            type: dataTypes.Date,
+        fecha_de_nacimiento: {
+            type: dataTypes.DATE,
             allowNull: false
         },
         email: {
@@ -39,11 +39,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         created_at: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         },
         updated_at: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         },
     }
