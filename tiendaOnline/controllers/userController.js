@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs'); 
+const db = require('../database/models');
 const controladorUsuarios = {
 
     index: function (req, res) {
@@ -11,15 +13,8 @@ const controladorUsuarios = {
     },
     login: function (req, res) {
         return res.send('Hola mundo');
-    }
-
-}
-
-
-module.exports = controladorUsuarios
-
-let registerController ={
-	index: function(req, res){
+    },
+    index2: function(req, res){
 		res.render('register')
 	},
 	store: function(req, res){
@@ -42,18 +37,12 @@ let registerController ={
 			return res.render('register')
 		}
 
-	}
+	},
+     store: function(req, res) {
+        console.log(req.body); //{ titulo: Batman }
+        },
+
 }
-module.exports = registerController
 
-const bcrypt = require('bcryptjs'); 
-const db = require('../database/user.js');
 
-let passEncriptada = bcrypt.hashSync('1234', 10);
-
-db.Usuario.create({
-	name: "Manuel",
-	username: "manolito",
-	password: passEncriptada
-});
-
+module.exports = controladorUsuarios

@@ -11,7 +11,9 @@ const usuarioRouter = require("./routes/routeUser");
 const { application } = require('express');
 const session = require('express-session');
 
+
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
