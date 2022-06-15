@@ -9,13 +9,16 @@ const indexRouter = require("./routes/index")
 const productosRouter = require("./routes/routeProducts")
 const usuarioRouter = require("./routes/routeUser");
 const { application } = require('express');
+const session = require('express-session');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
-
+app.use(session( { secret: "Nuestro mensaje secreto",
+				resave: false,
+				saveUninitialized: true }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
