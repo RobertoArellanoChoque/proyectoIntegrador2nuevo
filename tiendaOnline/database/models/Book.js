@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false
         },
-        descripcion: {
+        descripción: {
             type: dataTypes.TEXT,
             allowNull: false
         },
@@ -50,6 +50,6 @@ module.exports = (sequelize, dataTypes) => {
         underscored: true
 
     }
-    const Movie = sequelize.define(alias, cols, config)
-    return Movie;
+    const Book = sequelize.define(alias, cols, config)
+    return Book;
 }

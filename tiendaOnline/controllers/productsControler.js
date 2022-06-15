@@ -1,6 +1,6 @@
 const db = require('../database/models');
 
-const controladorProductos = {
+module.exports = {
     index: function (req, res) {
         return res.send('Hola mundo');
     },
@@ -13,6 +13,7 @@ const controladorProductos = {
         db.Book.findAll()
             .then(function (respuesta) {
                 res.send(respuesta)
+               
             })
     },
     detail: function (req, res) {
@@ -23,6 +24,6 @@ const controladorProductos = {
 
 };
 
-module.exports = controladorProductos;
+
 
 
