@@ -14,7 +14,7 @@
         <h3 class="tituloForm">Es rápido y fácil.
         </h3>
         <section class="formulario">
-            <form action="/usuario" class="formularioPrincpal">
+            <form action="/usuario" method="POST" enctype="multipart/form-data" class="formularioPrincpal">
 
                 <div class="cajaFormulario">
                     <label for="exampleInputEmail1" class="label">Correo Electrónico:</label>
@@ -47,8 +47,8 @@
                     <input type="text" class="" id="exampleInputPhone">
                 </div>
                 <div class="cajaFormulario">
-                    <label for="exampleInputIdNumber" class="label"> Profile Photo:</label>
-                     <input type="file" name="myFile">
+                    <label for="exampleInputIdNumber" class="label"> Foto de Perfil:</label>
+                     <input type="file" name="profilePhoto">
                 </div>
 
                 <button type="submit" class="">Submit</button>

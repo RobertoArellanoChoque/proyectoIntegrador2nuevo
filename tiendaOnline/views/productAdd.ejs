@@ -10,13 +10,13 @@
 	</nav>
 	<section class="formulario">
 
-		<form action="/usuario" method="get" class="formularioPrincpal">
+		<form action="/usuario" method="POST" enctype="multipart/form-data" class="formularioPrincpal">
 		  <div class="cajaFormulario">
-			<label for="exampleInputPassword1" class="label">Nombre Del Productos</label>
+			<label for="exampleInputPassword1" class="label">Nombre del producto</label>
 			<input type="text" class="" id="exampleInputPassword1" >
 		  </div>
 		  <div class="cajaFormulario">
-			<label for="exampleInputPassword1" class="label">Descripcion breve del Producto</label>
+			<label for="exampleInputPassword1" class="label">Descripción breve del producto</label>
 			<input type="text" class="form-control" id="exampleInputPassword1">
 		  </div>
 		  <div class="cajaFormulario">
@@ -24,8 +24,8 @@
 			<input type="text" class="form-control" id="exampleInputPassword1">
 		  </div>
 		  <div class="cajaFormulario">
-			<label class="label" for="">imagen</label>
-			<input type="file" class="form-check-input" id="exampleCheck1">
+			<label class="label" for="">Imágen</label>
+			<input type="file" name="imageProduct" class="form-check-input" id="exampleCheck1">
 		  </div>
 		  <div class="cajaFormulario" >
 			<button type="submit" class="label2">Cargar Producto</button>
