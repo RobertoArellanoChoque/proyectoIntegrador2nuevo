@@ -10,14 +10,10 @@
 
         <h2>Resultados de busqueda</h2>
 
-        <% for(let i=0; i<libros.titulo.lenght i++){%>
-            <p>
-                Titulo: <%= libros.titulo %> 
-            </p>
+        <% for(let i=0; i<libros.lenght; i++) { %>
+            <p> Vamos por la vuelta <%= libros[i].titulo %>  </p>
 
-            <% } %>
-
-
+        <%} %>  
 
 
 

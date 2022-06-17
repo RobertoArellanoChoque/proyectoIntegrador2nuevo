@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 
+
 module.exports = {
     index: function (req, res) {
         return res.send('Hola mundo');
@@ -9,16 +10,14 @@ module.exports = {
         return res.send('Hola mundo');
 
     },
-    show: (req, res) => {   
-        db.Book.findAll( {
-            where: [
-                {titulo: {[op.like]: "%Ocean%"} }
-            ]
-        })
-        .then(function(respuesta){
-            res.send(respuesta)
-        })
-        },
+    show: (req, res) => {
+        const id = req.query.search;
+        db.Book.findAll()
+         .then((resultado) => {
+            res.render('searchResults', { libros: resultado })
+         });
+
+    },
     detail: function (req, res) {
         return res.send('Hola mundo');
     }
