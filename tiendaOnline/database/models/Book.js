@@ -1,3 +1,5 @@
+
+
 module.exports = (sequelize, dataTypes) => {
     let alias = "Book";
     let cols = {
@@ -51,5 +53,20 @@ module.exports = (sequelize, dataTypes) => {
 
     }
     const Book = sequelize.define(alias, cols, config)
+    Book.associete = function(model){
+        Book.belongsTo(model.Genre, {
+            as: 'generos',
+            foreignKey: 'genero_id'
+        });
+        Book.belongsTo(model.User, {
+            as: 'usuarios',
+            foreignKey: 'usuario_id'
+        });  
+        Book.belongsTo(model.Book, {
+            as: 'comentarios',
+            foreignKey: 'libro_id'
+
+        })    
+    }
     return Book;
 }
