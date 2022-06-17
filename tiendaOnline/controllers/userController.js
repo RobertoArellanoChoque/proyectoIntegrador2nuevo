@@ -1,3 +1,7 @@
+
+
+//const upload = multer({ dest: '/usuarios' })
+const path = require('path');
 const bcrypt = require('bcryptjs'); 
 const db = require('../database/models');
 const controladorUsuarios = {
@@ -39,11 +43,21 @@ const controladorUsuarios = {
 
 	},
      store: function(req, res) {
-        console.log(req.body); { titulo: Batman }
+        console.log(req.body);
         },
 
 }
 
 
 module.exports = controladorUsuarios
+
+//var storage = multer.diskStorage({
+	//destination: (req, file, cb) => {
+	//	  cb(null, path.join(__dirname, './public/imges/products'));
+	//},
+	//filename: (req, file, cb) => {
+	//	  cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+	//}
+  //})
+   //upload = multer({ storage: storage });
 
