@@ -15,8 +15,8 @@ let storage = multer.diskStorage({ //objeto literal dividido en dos partes
   let upload = multer({ storage: storage });
 
 
-router.get('/register', usuarios.create);
-router.post('/register', upload.single('profilePhoto'), usuarios.create  );
+router.get('/register', usuarios.register);
+router.post('/register', upload.single('profilePhoto'), usuarios.register );
 
 router.get('/', usuarios.index);
 
