@@ -6,3 +6,9 @@ module.exports = {
   'seeders-path': path.resolve('./database/seeders'),
   'migrations-path': path.resolve('./database/migrations'),
 }
+
+require.config({
+  paths: { "bcrypt": "/path/to/bcrypt.js" }
+});
+require(["bcrypt"], function(bcrypt) {
+});
