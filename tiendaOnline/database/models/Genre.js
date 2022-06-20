@@ -18,8 +18,8 @@ module.exports = (sequelize, dataTypes) => {
 
     }
     const Genre = sequelize.define(alias, cols, config)
-    Genre.associete = function (model) {
-        Genre.hasMany(model.Book, {
+    Genre.associate = function (models) {
+        Genre.hasMany(models.Book, {
             as: 'libros',
             foreignKey: 'genero_id'
         });
