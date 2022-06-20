@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const productos = require ('../controllers/productsControler');
+//const productos = require ('../controllers/productsControler');
 const multer = require('multer');
 const path = require('path');
 let upload = multer({ dest: '/productos' });
@@ -14,6 +14,8 @@ router.get('/search-results', productos.show);
 
 
 module.exports = router;
+
+
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		  cb(null, path.join(__dirname, './public/imges/products'));
