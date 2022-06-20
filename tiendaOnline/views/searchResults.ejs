@@ -3,15 +3,23 @@
 
 <%- include('./partials/head') %>
 
-<body>
-    <nav>
-        <%- include('partials/navBar')%>
-    </nav>
-	<h2>Resultados de busqueda</h2>
-    
-    <div class="centrado">
-        <%- include('partials/footer')%>
-     </div>
-</body>
+    <body>
+        <nav>
+            <%- include('partials/navBar')%>
+        </nav>
+
+        <h2>Resultados de busqueda</h2>
+
+        <% for(let i=0; i<libros.lenght; i++) { %>
+            <p> Vamos por la vuelta <%= libros[i].titulo %>  </p>
+
+        <%} %>  
+
+
+
+                <div class="centrado">
+                    <%- include('partials/footer')%>
+                </div>
+    </body>
 
 </html>

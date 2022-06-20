@@ -1,6 +1,7 @@
 
+
 module.exports = (sequelize, dataTypes) => {
-    let alias = "User";
+    let alias = "Book";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -8,34 +9,33 @@ module.exports = (sequelize, dataTypes) => {
             autoincrement: true,
             allowNull: false
         },
-        nombre: {
+        titulo: {
             type: dataTypes.STRING,
             allowNull: false
         },
-        apellido: {
+        descripción: {
+            type: dataTypes.TEXT,
+            allowNull: false
+        },
+        comentario: {
             type: dataTypes.STRING,
             allowNull: false
         },
-        username: {
-            type: dataTypes.STRING,
+        genero_id: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
-        fecha_de_nacimiento: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },
-        email: {
-            type: dataTypes.STRING,
+        usuario_id: {
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true
 
-        },
-        clave: {
-            type: dataTypes.STRING,
-            allowNull: false
         },
         img: {
             type: dataTypes.STRING,
+            allowNull: false
+        },
+        valoracion: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         created_at: {
@@ -48,20 +48,25 @@ module.exports = (sequelize, dataTypes) => {
         },
     }
     let config = {
-        tableName: 'usuarios',
+        tableName: 'libros',
         underscored: true
 
     }
-    const User = sequelize.define(alias, cols, config)
-    User.associete = function (model) {
-        User.belongsTo(model.Comment, {
+    const Book = sequelize.define(alias, cols, config)
+    Book.associete = function(model){
+        Book.belongsTo(model.Genre, {
+            as: 'generos',
+            foreignKey: 'genero_id'
+        });
+        Book.belongsTo(model.User, {
+            as: 'usuarios',
+            foreignKey: 'usuario_id'
+        });  
+        Book.belongsTo(model.Book, {
             as: 'comentarios',
-            foreignKey: 'usuario_id'
-        }),
-        User.hasMany(model.Book, {
-            as: 'libros',
-            foreignKey: 'usuario_id'
-        })
+            foreignKey: 'libro_id'
+
+        })    
     }
-    return User;
+    return Book;
 }

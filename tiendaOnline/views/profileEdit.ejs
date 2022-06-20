@@ -9,45 +9,44 @@
             <%- include('partials/navBarLoged')%>
         </nav>
         <section class="formulario">
-            <form class="formularioPrincpal" action="/usuario">
+            <form method="POST" class="formularioPrincpal" enctype="multipart/form-data" action="/profile-edit">
 
                 <h2>Editá tu Perfil</h2>
-                <h4>Nombre y Apellido:</h4>
+                <h4>Nombre:</h4>
                 <div- class="cajaFormulario">
-                    <input class="" type="text" placeholder="<%=info.name%> " aria-label="Search">
+                    <input class="" type="text" placeholder="nombre" value="<%=user.nombre%> aria-label="Search">
                     <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
-                    <h4>Teléfono:</h4>
-
-                    <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%=info.phone%>" aria-label="Search">
-                        <button class="" type="submit">Editar✏️⚙️</button>
+                    <h4>Apellido:</h4>
+                <div- class="cajaFormulario">
+                    <input class="" type="text" placeholder="apellido" value="<%=user.apellido%> aria-label="Search">
+                    <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
+                    <h4>Username:</h4>
+                    <div- class="cajaFormulario">
+                        <input class="" type="text" placeholder="usuario" value="<%=user.username%> aria-label="Search">
+                        <button class="" type="submit">Editar✏️⚙️</button>
+                        </div>
+
                     <h4>Fecha de Nacimiento:</h4>
                     <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%= info.age%>" aria-label="Search">
+                        <input class="" type="date" placeholder="fecha_de_nacimiento" value="<%=user.fecha_de_nacimiento%>  aria-label="Search">
                         <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
                     <h4>Correo Electrónico:</h4>
                     <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%= info.email%>" aria-label="Search">
+                        <input class="" type="email" placeholder="email" value="<%=user.email%> aria-label="Search">
                         <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
                     <h4>Contraseña:</h4>
                     <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%= info.password%>" aria-label="Search">
+                        <input class="" type="password" placeholder="password" value="<%=user.clave%>  aria-label="Search">
                         <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
-                    <h4>
-                        <h4>DNI:</h4>
-                    </h4>
-                    <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%=info.idNumber%>" aria-label="Search">
-                        <button class="" type="submit">Editar✏️⚙️</button>
-                    </div>
+
                     <h4>Foto de Perfil:</h4>
                     <div class="cajaFormulario">
-                        <input class="" type="text" placeholder="<%=info.profilePhoto%>" aria-label="Search">
+                        <input class="" type="file" placeholder="profilePhoto" value="<%=user.img%>  aria-label="Search">
                         <button class="" type="submit">Editar✏️⚙️</button>
                     </div>
                     <div>
@@ -58,6 +57,6 @@
     </body>
     <div class="centrado">
         <%- include('partials/footer')%>
-     </div>
+    </div>
 
 </html>
