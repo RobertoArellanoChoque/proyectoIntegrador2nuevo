@@ -28,8 +28,10 @@ router.get('/login', usuarios.login);
 router.post('/login', usuarios.login);
 
 
-router.get('/profile', usuarios.profile)
+router.get('/profile', usuarios.profile);
 
+
+router.get('/logout', usuarios.logout)
 
 
 
