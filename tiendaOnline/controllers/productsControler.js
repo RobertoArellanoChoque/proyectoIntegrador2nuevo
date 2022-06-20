@@ -2,7 +2,7 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 
-module.exports = {
+const productos = {
     index: function (req, res) {
         return res.send('Hola mundo');
     },
@@ -26,7 +26,7 @@ module.exports = {
 
 };
 
-
+module.exports= productos
 
 
 

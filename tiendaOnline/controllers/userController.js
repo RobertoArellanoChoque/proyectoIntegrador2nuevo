@@ -2,30 +2,11 @@
 
 
 const bcrypt = require('bcryptjs');
-let session = require('express-session');
+//let session = require('express-session');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
-let users = db.User // el nombre del alias del modelo
+let users = db.User// el nombre del alias del modelo
 const controladorUsuarios = {
-	index: function (req, res) {
-		return res.send('Hola mundo');
-	},
-	edit: function (req, res) {
-		let userId = req.params.uderId;
-		users.findByPk(userId)
-			.then(function (user) {
-				return res.render('profileEdit', { userEdit: user }) //me devuelve todos los datos en un objeto literal
-
-			})
-			.catch
-	},
-
-
-	index2: function (req, res) {
-		res.render('register')
-	},
-
-
 	create: function (req, res) {
 		return res.send('register');
 	},
@@ -72,15 +53,46 @@ const controladorUsuarios = {
 							fechaDeNacimiento: req.body.fecha_de_nacimiento
 
 						}
-						db.users.create(users)
-							.then(users => {
-								return res.redirect('/')
+						db.User.create(users)
+							.then(userGuardado => {
+								return res.redirect('/login')
 							})
-							.catch(e => { console.log(e) })
+							.catch(error => console.log(error))
 					}
 				})
 		}
 	},
+	
+	edit: function (req, res) {
+		const id = req.params.id
+
+		if (req.session.user) {
+			if (id != req.session.user.id) {
+				return res.redirect(`profileEdit/${req.session.user.id}`) /* Forma hacer que solo el duenio del perfil pueda editar sus datos */
+			} else {
+				db.User.findByPk(id, {
+					include: [
+						{ association: 'products' },/* Relacion de productos con usuarios */
+						{ association: 'comments' } /* Relacion de productos con comentarios */
+					]
+				})
+					.then((data) => {
+						if (data == null) {
+							return res.redirect('/')
+						} else {
+							return res.render('profileEdit.ejs', { data: data })
+						}
+					})
+					.catch((err) => {
+						console.log(err)
+					})
+			}
+		} else {
+			res.redirect('/login')
+		}
+	},
+
+
 
 	login: function (req, res) {
 		return res.send('login');
@@ -107,10 +119,57 @@ const controladorUsuarios = {
 					return res.redirect('/')
 				}
 			})
-		}
-	}
+	},
+	profile: function (req, res) {
+		return res.send('profile');
+	},
+		profileStore: function(req, res) {
+			const user = {
+				nombre: req.body.nombre,
+				apellido: req.body.apellido,
+				username: req.body.username,
+				email: req.body.email,
+				clave: bcypyt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
+				img: req.file.filename,
+				fechaDeNacimiento: req.body.fecha_de_nacimiento
 
-	module.exports = controladorUsuarios
+			}
+
+			if (req.file == undefined) {
+				user.img = req.session.user.img;
+			} else {
+				user.img = req.file.filename;
+			}
+
+			db.User.update(user, {
+				where: {
+					id: req.session.user.id
+				}
+			})
+				.then(function () {
+
+					user.id = req.session.user.id
+
+					req.session.user = user /* Probar sin esto o usando abajo el req.session.usser.id */
+
+					return res.redirect(`/profile/${user.id}`)
+				})
+				.catch(error => {
+					console.log(error)
+				})
+		},
+		logout: function(req,res) {
+			req.session.destroy()
+			res.clearCookie('userId')
+			res.redirect('/')
+		},
+
+	}
+	
+
+
+
+module.exports = controladorUsuarios
 
 
 
