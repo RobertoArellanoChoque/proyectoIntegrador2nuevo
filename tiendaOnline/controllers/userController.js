@@ -1,22 +1,16 @@
 
-
-
 const bcrypt = require('bcryptjs');
 
 const db = require('../database/models');
-const op = db.Sequelize.Op;
+const Op = db.Sequelize.Op;
 
-
-
-
-let users = db.User // el nombre del alias del modelo
 let userController = {
 	index: function (req, res) {
 		return res.send('/index');
 	},
 
 	register: function (req, res) {
-		return res.render('register');
+		return res.render('register.ejs');
 	},
 	storeRegister: function (req, res) { //VALIDACIONES: asegurarse que se complete el formulario
 		let errors = {} //configuracion de un objeto literal vacio

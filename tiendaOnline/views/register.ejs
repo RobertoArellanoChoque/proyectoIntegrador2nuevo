@@ -14,7 +14,7 @@
         <h3 class="tituloForm">Es rápido y fácil.
         </h3>
         <section class="formulario">
-            <form action="/" class="formularioPrincpal" method="POST">
+            <form action="/usuario/register" class="formularioPrincpal" method="POST" enctype="multipart/form-data">
 
                 <div class="cajaFormulario">
                     <label for="exampleInputEmail1" class="label">Correo Electrónico:</label>
@@ -23,25 +23,28 @@
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Contraseña:</label>
-                    <input type="password" class="" id="exampleInputPassword1">
+                    <input type="password"  name="clave" value="" required class="" id="exampleInputPassword1">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Confirmar Contraseña:</label>
-                    <input type="password" class="" id="exampleInputPassword1">
+                    <input type="password" name="clave" value="" required class="" id="exampleInputPassword1">
                     <div id="emailHelp" class="letrasBold">Nunca compartiremos su contraseña con nadie más.</div>
                 </div>
                 <div class="cajaFormulario">
-                    <label for="exampleInputPassword1" class="label">Nombre y Apellido:</label>
-                    <input type="text" class="" id="exampleInputPassword1">
+                    <label for="exampleInputPassword1" class="label">Nombre:</label>
+                    <input type="text" class=""  name="nombre" value="" required id="exampleInputPassword1">
                 </div>
-                
+                <div class="cajaFormulario">
+                    <label for="exampleInputPassword1" class="label">Apellido:</label>
+                    <input type="text"  name="apellido" value="" required class="" id="exampleInputPassword1">
+                </div>
             <div class="cajaFormulario">
                     <label for="exampleInputIdNumber" class="label">Fecha de Nacimiento:</label>
-                    <input type="date" class="" id="exampleInputDate">
+                    <input type="date"  name="fecha_de_nacimiento" value="" required class="" id="exampleInputDate">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputIdNumber" class="label"> Profile Photo:</label>
-                     <input type="file" name="myFile">
+                     <input type="file" name="filename" value="" required >
                 </div>
 
                 <button type="submit" class="">Submit</button>
