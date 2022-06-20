@@ -20,7 +20,7 @@ module.exports = {
 		if (req.body.email == "") { // si req.body.email es vacio señalar que es obligatorio qu este completo
 			errors.messaje = "El email es obligatorio";
 			res.locals.errors = errors;//guarda errors en locals
-			return res.render('register'{
+			return res.render('register',{
 				title: 'create una cuenta'
 			})
 		} else if (req.body.apellido == "") {
@@ -97,8 +97,8 @@ module.exports = {
 			} else {
 				db.User.findByPk(id, {
 					include: [
-						{ association: 'products' },/* Relacion de productos con usuarios */
-						{ association: 'comments' } /* Relacion de productos con comentarios */
+						{ association: 'libros' },/* Relacion de productos con usuarios */
+						{ association: 'comentarios' } /* Relacion de productos con comentarios */
 					]
 				})
 					.then((data) => {
