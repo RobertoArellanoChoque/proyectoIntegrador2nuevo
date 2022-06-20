@@ -10,16 +10,29 @@
 
         <h2>Resultados de busqueda</h2>
 
-        <% for(let i=0; i<libros.lenght; i++) { %>
-            <p> Vamos por la vuelta <%= libros[i].titulo %>  </p>
 
-        <%} %>  
+        <section class="primerasection">
+            <% for ( let=i; i<libros.lenght; i++) { %>
+                <article class="segundaSectionInicio">
+                <h3 class=tituoloLibro>
+
+                </h3>
+                <a href="/productos">
+                    <img class="imagen" src="" alt="">
+                </a>
+                <h4>Lanzamiento: <%= libros[i].titulo %>
+                </h4>
+                </article>
+                <% } %>
+        </section>
 
 
 
-                <div class="centrado">
-                    <%- include('partials/footer')%>
-                </div>
+
+
+        <div class="centrado">
+            <%- include('partials/footer')%>
+        </div>
     </body>
 
 </html>
