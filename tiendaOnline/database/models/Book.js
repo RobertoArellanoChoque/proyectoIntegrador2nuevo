@@ -52,21 +52,23 @@ module.exports = (sequelize, dataTypes) => {
         underscored: true
 
     }
+    
     const Book = sequelize.define(alias, cols, config)
-    Book.associete = function(model){
-        Book.belongsTo(model.Genre, {
+    Book.associate = function(models){
+        Book.belongsTo(models.Genre, {
             as: 'generos',
             foreignKey: 'genero_id'
         });
-        Book.belongsTo(model.User, {
+        Book.belongsTo(models.User, {
             as: 'usuarios',
             foreignKey: 'usuario_id'
         });  
-        Book.belongsTo(model.Book, {
+        Book.hasMany(models.Comment, {
             as: 'comentarios',
             foreignKey: 'libro_id'
 
         })    
     }
     return Book;
+    
 }
