@@ -33,25 +33,45 @@ module.exports = {
 		let errors = {} //configuracion de un objeto literal vacio
 		if (req.body.email == "") { // si req.body.email es vacio señalar que es obligatorio qu este completo
 			errors.messaje = "El email es obligatorio";
-			console.log(errors) //guarda errors en locals
-			return res.render('register')
+			res.locals.errors = errors;//guarda errors en locals
+			return res.render('register'{
+				title: 'create una cuenta'
+			})
+		} else if (req.body.apellido == "") {
+            errors.message = "El apellido es obligatorio.";
+            res.locals.errors = errors;
+            return res.render('register', {
+                title: 'create una cuenta'
+            })
+
+        } else if (req.body.username == "") {
+            errors.message = "El username es obligatorio.";
+            res.locals.errors = errors;
+            return res.render('register', {
+                title: 'create una cuenta'
+            })
 		} else if (req.body.password == "") {
 			errors.messaje = "La contrasena es obligatorio";
-			console.log(errors) //guarda errors en locals
-			return res.render('register')
+			return res.render('register', {
+                title: 'create una cuenta'
+            })
+
 		} else if (req.body.retypePassword == "") {
 			errors.messaje = "La contrasena es obligatorio";
-			console.log(errors) //guarda errors en locals
-			return res.render('register')
+			return res.render('register', {
+                title: 'create una cuenta'
+            })
 		} else if (req.password != req.retypePassword) {
 			errors.messaje = "Las contrasena no coinciden";
-			console.log(errors) //guarda errors en locals
-			return res.render('register')
+			return res.render('register', {
+                title: 'create una cuenta'
+            })
 			//Los return register te devulven a la pagina para que se complete lo que no se lleno previamente
 		} else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg') {
 			errors.messaje = "Las extensiones no coinciden";
-			console.log(errors)
-			return res.render('register')
+			return res.render('register', {
+                title: 'create una cuenta'
+            })
 		} else {
 			db.User.findOne({
 				where: [{ email: req.body.email }]
