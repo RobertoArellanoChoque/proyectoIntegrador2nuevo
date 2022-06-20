@@ -2,11 +2,16 @@
 
 
 const bcrypt = require('bcryptjs');
-//let session = require('express-session');
+let session = require('express-session');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
-let users = db.User// el nombre del alias del modelo
-const controladorUsuarios = {
+
+
+
+
+let users = db.User // el nombre del alias del modelo
+module.exports = {
+
 	create: function (req, res) {
 		return res.send('register');
 	},
@@ -119,6 +124,7 @@ const controladorUsuarios = {
 					return res.redirect('/')
 				}
 			})
+
 	},
 	profile: function (req, res) {
 		return res.send('profile');
@@ -169,7 +175,8 @@ const controladorUsuarios = {
 
 
 
-module.exports = controladorUsuarios
+
+
 
 
 
