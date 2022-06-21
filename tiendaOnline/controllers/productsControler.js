@@ -17,7 +17,7 @@ const controladorProudctos = {
         if (product == "") {
             errors.message = "No se encontro tu busqueda";
             res.locals.errors = errors;
-            return res.render('searchResults', {error : errors} )
+            return res.render('searchResults', { error: errors })
         } else {
             db.Book.findAll({
                 where: {
@@ -37,8 +37,8 @@ const controladorProudctos = {
             })
                 .then((data) => {
                     if (data != '') {
-                        return res.render('searchResults',{libro :data} )
-                    } else (data == product) ;{
+                        return res.render('searchResults', { libro: data })
+                    } else (data == product); {
                         errors.message = "No se encontro el libro que buscas";
                         res.locals.errors = errors;
                         return res.render('searchResults',)
@@ -50,7 +50,13 @@ const controladorProudctos = {
         }
     },
     detail: function (req, res) {
-        return res.render('product');
+        db.Book.findByPk(req.params.id)
+            .then((function(data) {
+                console.log(data)
+            }))
+            .catch((err) => {
+                console.log(err)
+            })
 
     }
 

@@ -6,7 +6,7 @@ const path = require('path');
 //let upload = multer({ dest: '/productos' });
 
 
-router.get('/detalle', productos.detail);
+router.get('/detalle/:id?', productos.detail);
 router.get('/', productos.index);
 //router.get('/product-add', upload.single('imageProduct'), productos.create);
 //router.post('/product-add',upload.single('imageProduct'), productos.create);
