@@ -52,7 +52,7 @@ const controladorProudctos = {
     detail: function (req, res) {
         db.Book.findByPk(req.params.id)
             .then((function(data) {
-                console.log(data)
+                res.render('product', {libro : data})
             }))
             .catch((err) => {
                 console.log(err)
