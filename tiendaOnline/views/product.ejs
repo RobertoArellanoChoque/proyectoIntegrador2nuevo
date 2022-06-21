@@ -9,27 +9,8 @@
 		<%- include('partials/navBar')%>
 	</nav>
 	
-	<h2 class="centrado">Todos Los Productos</h2>
-			<section class="primerasection" >
-				
-					<% for(let i=0; i<lista.length; i+=1){ %>
-						<article class="segundaSection" >
-						<h3 class=tituoloLibro >
-							<%= lista[i].title %>
-						</h3>
-						<a href="/productos/detalle">
-						<img class="imagen" src="<%= lista[i].image %> " alt="">
-						</a>
-						<h4>Lanzamiento: <%= lista[i].upload %>
-						</h4>
-					</article>
-						<%}%>
-					<a href="/productos/product-add" class="segundaSection">
-						<h3 class="tituololibro"> </h3>
-						<img class="imagen" src="<%= imag.image %>" alt="">
-					</a>
-			</section>
-		
+	<h2>Detalle de productos</h2>
+			
 	
 	<div class="centrado">
 		<%- include('partials/footer')%>

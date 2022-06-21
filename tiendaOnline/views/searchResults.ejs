@@ -9,30 +9,33 @@
         </nav>
 
         <h2>Resultados de busqueda</h2>
+        <% if (locals.errors) { %>
+            <h3>
+                <%= errors.message %>
+            </h3>
+            <% }else { %>
+                <section class="primerasection"></section>
+                <% for (let i=0 ; i < libro.length; i++ ) { %>
+                    <article class="segundaSectionInicio">
+                        <h3 class=tituoloLibro  ><%= libro[i].titulo %> </h3>
+                        <a href="/productos/detalle/<%= libro[i].id %> " >
+                            <img class="imagen"  src="/images/products/<%=libro[i].img%>">
+                        </a>
+                        
+                    </article>
+                    <% } %>
+                        </section>
+                        <% } %>
 
 
-        <section class="primerasection">
-            <% for ( let=i; i<libros.lenght; i++) { %>
-                <article class="segundaSectionInicio">
-                <h3 class=tituoloLibro>
-
-                </h3>
-                <a href="/productos">
-                    <img class="imagen" src="" alt="">
-                </a>
-                <h4>Lanzamiento: <%= libros[i].titulo %>
-                </h4>
-                </article>
-                <% } %>
-        </section>
 
 
 
 
 
-        <div class="centrado">
-            <%- include('partials/footer')%>
-        </div>
+                            <div class="centrado">
+                                <%- include('partials/footer')%>
+                            </div>
     </body>
 
 </html>

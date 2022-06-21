@@ -28,11 +28,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         usuario_id: {
             type: dataTypes.INTEGER,
-            
-
+            allowNull: true
         },
         comentario_id: {
             type: dataTypes.STRING,
+            allowNull: true
        
         },
     }
