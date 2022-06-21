@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 
 let userController = {
 	index: function (req, res) {
-		return res.send('/index');
+		return res.render('/');
 	},
 
 	register: function (req, res) {
@@ -15,46 +15,34 @@ let userController = {
 	storeRegister: function (req, res) { //VALIDACIONES: asegurarse que se complete el formulario
 		let errors = {} //configuracion de un objeto literal vacio
 		if (req.body.email == "") { // si req.body.email es vacio señalar que es obligatorio qu este completo
-			errors.messaje = "El email es obligatorio";
+			errors.message = "El email es obligatorio";
 			res.locals.errors = errors;//guarda errors en locals
-			return res.render('register', {
-				title: 'create una cuenta'
-			})
+			return res.render('register.ejs', {title: 'create una cuenta'})
 		} else if (req.body.apellido == "") {
-			errors.message = "El apellido es obligatorio.";
+			errors.message = "El apellido es obligatorio";
 			res.locals.errors = errors;
-			return res.render('register', {
-				title: 'create una cuenta'
-			})
+			return res.render('register', {title: 'create una cuenta'})
 
-		} else if (req.body.username == "") {
-			errors.message = "El username es obligatorio.";
+		} else if (req.body.nombre == "") {
+			errors.message = "El nombre es obligatorio.";
 			res.locals.errors = errors;
-			return res.render('register', {
-				title: 'create una cuenta'
-			})
-		} else if (req.body.password == "") {
-			errors.messaje = "La contrasena es obligatorio";
-			return res.render('register', {
-				title: 'create una cuenta'
-			})
+			return res.render('register', {title: 'create una cuenta'})
+		} else if (req.body.clave == "") {
+			errors.message = "La contrasena es obligatoria";
+			return res.render('register', {title: 'create una cuenta'})
 
-		} else if (req.body.retypePassword == "") {
-			errors.messaje = "La contrasena es obligatorio";
+		} else if (req.body.reclave == "") {
+			errors.message = "La contrasena es obligatorio";
 			return res.render('register', {
 				title: 'create una cuenta'
 			})
-		} else if (req.password != req.retypePassword) {
-			errors.messaje = "Las contrasena no coinciden";
-			return res.render('register', {
-				title: 'create una cuenta'
-			})
+		} else if (req.clave != req.reclave) {
+			errors.message = "Las contrasena no coinciden";
+			return res.render('register', {title: 'create una cuenta'})
 			//Los return register te devulven a la pagina para que se complete lo que no se lleno previamente
 		} else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg') {
-			errors.messaje = "Las extensiones no coinciden";
-			return res.render('create', {
-				title: 'create una cuenta'
-			})
+			errors.message = "Las extensiones no coinciden";
+			return res.render('register', {title: 'create una cuenta'})
 		} else {
 			db.User.findOne({
 				where: [{ email: req.body.email }]
@@ -68,20 +56,20 @@ let userController = {
 						let users = { // creo un objeto literal colecciono los datos del formulario para enviarle a la base de datos
 							nombre: req.body.nombre,
 							apellido: req.body.apellido,
-							username: req.body.username,
+							documento: req.body.documento,
 							email: req.body.email,
 							clave: bcypyt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
 							img: req.file.filename,
-							fechaDeNacimiento: req.body.fecha_de_nacimiento
+							fecha_de_nacimiento: req.body.fecha_de_nacimiento
 
 						}
 						db.User.create(users)
-							.then(userGuardado => {
-								return res.redirect('/login')
+							.then((userGuardado) => {
+								return res.redirect('/usuario/login')
 							})
 							.catch(error => console.log(error))
 					}
-				})
+				}).catch(error => console.log(error))
 		}
 	},
 
@@ -94,8 +82,8 @@ let userController = {
 			} else {
 				db.User.findByPk(id, {
 					include: [
-						{ association: 'libros' },/* Relacion de productos con usuarios */
-						{ association: 'comentarios' } /* Relacion de productos con comentarios */
+						{ association: 'Book' },/* Relacion de productos con usuarios */
+						{ association: 'Comment' } /* Relacion de productos con comentarios */
 					]
 				})
 					.then((data) => {
@@ -124,21 +112,20 @@ let userController = {
 		db.users.findOne({
 			where: [{
 				email: req.body.email,
-				password: req.body.clave
-			}]
+				}]
 		})
 			.then(function (users) {
 				if (users == null) {
 					errors.message = "El usuario no existe";
 					res.Locals.errors = errors;
 					return res.render('login')
-				} else if (bcypt.compareSync(req.body.password, users.password == false)) {
+				} else if (bcypt.compareSync(req.body.clave, users.clave == false)) {
 					errors.message = "La contraseña es incorrecta"
 					res.Locals.errors = errors;
 					return res.render('login')
 				} else {
-					if (req.body.created_at !== undefined) {
-						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 })
+					if (req.body.created_at !== undefined) { //no entiendo que hace el created at
+						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 }) // a que se refiere el userId
 					}
 					req.session.users = users;
 					return res.redirect('/')
@@ -153,7 +140,7 @@ let userController = {
 		const user = {
 			nombre: req.body.nombre,
 			apellido: req.body.apellido,
-			username: req.body.username,
+			documento: req.body.documento,
 			email: req.body.email,
 			clave: bcypyt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
 			img: req.file.filename,

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const usuarios = require('../controllers/userController');
+const userController = require('../controllers/userController');
 let path = require('path');
 let multer = require('multer');
 //configuracion multer
@@ -15,23 +15,23 @@ let storage = multer.diskStorage({ //objeto literal dividido en dos partes
   let upload = multer({ storage: storage });
 
 
-router.get('/register', usuarios.register);
-router.post('/register', upload.single('profilePhoto'), usuarios.register );
+router.get('/register', userController.register);
+router.post('/register', upload.single('profilePhoto'), userController.storeRegister );// ver esto
 
-router.get('/', usuarios.index);
+router.get('/', userController.index);
 
-router.get('/profile-edit', usuarios.edit);
-router.post('/profile-edit',upload.single('profilePhoto'), usuarios.edit ),
-
-
-router.get('/login', usuarios.login);
-router.post('/login', usuarios.login);
+router.get('/profile-edit', userController.edit);
+router.post('/profile-edit',upload.single('profilePhoto'), userController.edit ),
 
 
-router.get('/profile', usuarios.profile);
+router.get('/login', userController.login);
+router.post('/login', userController.login);
 
 
-router.get('/logout', usuarios.logout)
+router.get('/profile', userController.profile);
+
+
+router.get('/logout', userController.logout)
 
 
 
