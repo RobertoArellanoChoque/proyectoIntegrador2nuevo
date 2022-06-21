@@ -7,36 +7,16 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true,
-            allowNull: false
         },
         titulo: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING
         },
-        descripción: {
+        descripcion: {
             type: dataTypes.TEXT,
-            allowNull: false
-        },
-        comentario: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        genero_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        },
-        usuario_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-
         },
         img: {
             type: dataTypes.STRING,
-            allowNull: false
-        },
-        valoracion: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+      
         },
         created_at: {
             type: dataTypes.DATE,
@@ -46,19 +26,25 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATE,
             allowNull: false
         },
+        usuario_id: {
+            type: dataTypes.INTEGER,
+            
+
+        },
+        comentario_id: {
+            type: dataTypes.STRING,
+       
+        },
     }
     let config = {
         tableName: 'libros',
-        underscored: true
-
+        underscored: true,
+        timesstamps: true
     }
     
     const Book = sequelize.define(alias, cols, config)
+
     Book.associate = function(models){
-        Book.belongsTo(models.Genre, {
-            as: 'generos',
-            foreignKey: 'genero_id'
-        });
         Book.belongsTo(models.User, {
             as: 'usuarios',
             foreignKey: 'usuario_id'
@@ -66,7 +52,6 @@ module.exports = (sequelize, dataTypes) => {
         Book.hasMany(models.Comment, {
             as: 'comentarios',
             foreignKey: 'libro_id'
-
         })    
     }
     return Book;

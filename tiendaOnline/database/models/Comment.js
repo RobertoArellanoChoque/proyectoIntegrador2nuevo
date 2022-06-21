@@ -5,34 +5,34 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true,
-            allowNull: false
+        
         },
-        texto_cometario: {
+        texto_comentario: {
             type: dataTypes.STRING,
-            allowNull: false
+
+        },
+        created_at: {
+            type: dataTypes.DATE,
+            
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            
         },
         usuario_id: {
             type: dataTypes.INTEGER,
-            allowNull: false
+            allowNull: true,
+            
 
         },
         libro_id: {
             type: dataTypes.INTEGER,
-            allowNull: false
-
-        },
-
-        created_at: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },
-        updated_at: {
-            type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true,
         },
     }
     let config = {
         tableName: 'comentarios',
+        timestamps: true,
         underscored: true
 
     }

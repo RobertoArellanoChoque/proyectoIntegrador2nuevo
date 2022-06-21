@@ -25,14 +25,8 @@ const productos = {
                         { descripción: { [Op.like]: "%" + productSearch + "%", } },
                     ],
                 },
-                order: [
-                    ['titulo', 'ASC'],
-                ],
-                limit: 5,
                 include: [
-                    {association: "generos"},
-                    {association: "usuarios"}
-                   
+                    {association: "usuarios"}     
                 ]
             }
             ).then (resultado => {

@@ -6,55 +6,52 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true,
-            allowNull: false
         },
         nombre: {
             type: dataTypes.STRING,
-            allowNull: false
+           
         },
         apellido: {
             type: dataTypes.STRING,
-            allowNull: false
+            
         },
-        username: {
-            type: dataTypes.STRING,
-            allowNull: false
+        documento: {
+            type: dataTypes.INTEGER,
+            
         },
         fecha_de_nacimiento: {
             type: dataTypes.DATE,
-            allowNull: false
         },
         email: {
             type: dataTypes.STRING,
-            allowNull: false,
-            unique: true
 
         },
         clave: {
             type: dataTypes.STRING,
-            allowNull: false
+            
         },
         img: {
             type: dataTypes.STRING,
-            allowNull: false
+
         },
         created_at: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         updated_at: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
     }
     let config = {
         tableName: 'usuarios',
-        underscored: true
+        underscored: true,
+        timestamps: true
 
     }
     const User = sequelize.define(alias, cols, config)
     User.associate = function (models) {
-        User.belongsTo(models.Comment, {
+        User.hasMany(models.Comment, {
             as: 'comentarios',
             foreignKey: 'usuario_id'
         }),
