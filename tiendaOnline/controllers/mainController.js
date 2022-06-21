@@ -1,10 +1,16 @@
-const db = require('../database/models');
+let db = require ("../database/models");
 
 
 
-module.exports = {
+const controladorUsuarios = {
     index: (req, res) => {
-        res.render('index')
+        db.Book.findAll({
+            order: [
+                ['titulo', 'ASC']
+            ]
+        }).then ((data) => {
+            return res.render("index", { libro: data })
+        })
     },
 
 
@@ -15,6 +21,8 @@ module.exports = {
 
 
 };
+
+module.exports = controladorUsuarios;
 
 
 

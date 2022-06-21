@@ -10,15 +10,15 @@
     
             <section class="primerasection" >
                 
-                    <% for(let i=1; i<10; i+=2){ %>
+                    <% for(let i=0; i<libro.length; i++){ %>
                         <article class="segundaSectionInicio" >
                         <h3 class=tituoloLibro >
                             
                         </h3>
-                        <a href="/productos">
-                        <img class="imagen" src="" alt="">
+                        <a href="/productos/detalle:<%= libro[i].id %> ">
+                            <img class="imagen"  src="/images/products/<%=libro[i].img%>">
                         </a>
-                        <h4>Lanzamiento: 
+                        <h4> SUBIDO : <%= libro[i].created_at %> 
                         </h4>
                     </article>
                         <%}%>
