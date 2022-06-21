@@ -1,15 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let session = require('express-session')
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
 
-const indexRouter = require("./routes/index")
-const productosRouter = require("./routes/routeProducts")
-const usuarioRouter = require("./routes/routeUser");
-const { application } = require('express');
-const session = require('express-session');
+let indexRouter = require("./routes/index")
+let productosRouter = require("./routes/routeProducts")
+let usuarioRouter = require("./routes/routeUser");
+
+
+const db= (require('./database/models'))
 
 
 var app = express();
