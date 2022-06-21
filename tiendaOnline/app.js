@@ -1,9 +1,10 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
-let session = require('express-session')
+var session = require('express-session')
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+
 
 
 let indexRouter = require("./routes/index")
@@ -29,6 +30,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'))
+
+
+app.use(session({
+  secret: 'arribaBoca',
+  resave: false,
+  saveUninitialized: false
+}))
+
 
 
 app.use("/", indexRouter);
