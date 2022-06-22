@@ -8,6 +8,8 @@
 		<nav>
 			<%- include('partials/navBarLoged')%>
 		</nav>
+
+		
 		<section class="primerasection">
 				<article class="segundaSectionInicio">
 					<h3 class=tituoloLibro>
@@ -17,8 +19,26 @@
 						<img class="imagen" src="/images/products/<%=libro.img%>">
 					</a>
 					<p>DESCRIPCIÓN : <%= libro.descripcion %> </p>
-
+				</article >
+				
+				<% if(locals.user){ %>
+					<article class="segundaSectionInicio" >
+					<h3>COMENTARIOS : </h3>
+					<% for (let i=0 ; i < libro.comentarios.length; i++ ) { %>
+						<p> <%= libro.comentarios[i].usuarios.nombre %> comento: <%= libro.comentarios[i].texto_comentario %> </p>
+						<% } %>
+						<form class="form" action="" method="POST">
+							<input class="" type="text"  name="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="">AGREGAR COMENTARIO</button>
 				</article>
+				<% } else { %>
+					<article class="segundaSectionInicio" >
+						<h3>COMENTARIOS : </h3>
+						<% for (let i=0 ; i < libro.comentarios.length; i++ ) { %>
+							<p> <%= libro.comentarios[i].usuarios.nombre %> comento: <%= libro.comentarios[i].texto_comentario %> </p>
+							<% } %>
+				<%}%> 
+				
 		</section>
 
 

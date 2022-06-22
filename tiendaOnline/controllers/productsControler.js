@@ -153,7 +153,16 @@ const controladorProudctos = {
         }
     },
     detail: function (req, res) {
-        db.Book.findByPk(req.params.id)
+let id = req.params.id
+
+        db.Book.findByPk(id, {
+            include: [
+                { association: 'comentarios',
+                include: {association: 'usuarios'}
+             },
+                { association: 'usuarios' }
+            ],
+        })
             .then((function(data) {
                 res.render('product', {libro : data})
             }))

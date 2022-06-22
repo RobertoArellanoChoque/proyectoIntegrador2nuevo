@@ -21,15 +21,15 @@ router.post('/register', upload.single('img'), userController.storeRegister );
 router.get('/', userController.index);
 
 //ruta de usuario profile edit 
-router.get('/profile-edit/user:Id', userController.edit);//preguntar
-router.post('/profile-edit',upload.single('img'), userController.edit ),
+router.get('/profile-edit/:id', userController.edit);//preguntar
+router.post('/profile-edit/profileStore/:id',upload.single('img'), userController.profileStore ),
 
 //ruta de usuario login
 router.get('/login', userController.login);
 router.post('/login', userController.storeLogin);
 
 
-router.get('/profile', userController.profile);
+router.get('/profile/:id', userController.profile);
 
 //ruta de logout
 router.post('/logout', userController.logout)
