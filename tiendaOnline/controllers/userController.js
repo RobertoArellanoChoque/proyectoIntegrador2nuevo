@@ -1,6 +1,5 @@
 
 const bcrypt = require('bcryptjs');
-
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
@@ -36,7 +35,7 @@ let userController = {
 			return res.render('register', {
 				title: 'create una cuenta'
 			})
-		} else if (req.clave != req.reclave) {
+		} else if (req.body.clave != req.body.reclave) {
 			errors.message = "Las contrasena no coinciden";
 			return res.render('register', {title: 'create una cuenta'})
 			//Los return register te devulven a la pagina para que se complete lo que no se lleno previamente
@@ -58,14 +57,14 @@ let userController = {
 							apellido: req.body.apellido,
 							documento: req.body.documento,
 							email: req.body.email,
-							clave: bcypyt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
+							clave: bcrypt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
 							img: req.file.filename,
 							fecha_de_nacimiento: req.body.fecha_de_nacimiento
 
 						}
 						db.User.create(users) // raro, no convence
 							.then((userGuardado) => {
-								return res.redirect('/usuario/login')
+								return res.redirect('/')
 							})
 							.catch(error => console.log(error))
 					}

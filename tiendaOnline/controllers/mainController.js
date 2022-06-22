@@ -12,14 +12,6 @@ const controladorUsuarios = {
             return res.render("index", { libro: data })
         })
     },
-
-
-
-    show: function (req, res) {
-        return res.send('Hola mundo');
-    }
-
-
 };
 
 module.exports = controladorUsuarios;

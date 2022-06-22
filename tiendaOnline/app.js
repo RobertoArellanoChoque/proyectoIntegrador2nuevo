@@ -1,9 +1,9 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
-var session = require('express-session')
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+var session = require('express-session')
 
 
 
@@ -21,15 +21,13 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
-app.use(session( { secret: "Nuestro mensaje secreto",
-				resave: false,
-				saveUninitialized: true }));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('public'))
+
 
 
 app.use(session({
@@ -38,47 +36,38 @@ app.use(session({
   saveUninitialized: false
 }))
 
-
-
-app.use("/", indexRouter);
-app.use("/productos", productosRouter);
-app.use("/usuario", usuarioRouter);
-
-app.use(session({
-  secret: 'tiendaOnline',
-  resave: false,
-  saveUninitialized: true
-
-}));
-
-// pasar datos de session a locals
-app.use(function(req,res,next){
-
+app.use(function(req, res, next){
   res.locals.user = req.session.user
 
   return next()
 })
 
 app.use(function(req, res, next){
-  //chequear que no tengamos usuario en sessión y si tengamos cookie
-  if(req.session.user == undefined && req.cookies.userId !== undefined){
-    //Buscar el usario de la base de datos
-       db.User.findByPk(req.cookies.userId)
-            .then( function(user){
-              //Dentro del then pasar al usario a req.session.user
-              //Pasar al usuario locals.user
-              // retornar next()
-                req.session.user = user
-                res.locals.user = user
-              
-                return next()
+    //chequear que no tengamos usuario en sessión y si tengamos cookie
+    if(req.session.user == undefined && req.cookies.userId !== undefined){
+      //Buscar el usario de la base de datos
+         users.findByPk(req.cookies.userId)
+              .then(function(user){
+                //Dentro del then pasar al usuario a req.session.user
+                //Pasar al usuario locals.user
+                // retornar next()
+                  req.session.user = user
+                  res.locals.user = user
+                
+                  return next()
+  
+              })
+              .catch( error => console.log(error))
+            } else { //tiene que haber un else
+              return next()
+            }
+  })
 
-            })
-            .catch( error => console.log(error))
-          } else { //tiene que haber un else
-            return next()
-          }
-})
+
+
+app.use("/", indexRouter);
+app.use("/productos", productosRouter);
+app.use("/usuario", usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

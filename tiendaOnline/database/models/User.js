@@ -5,7 +5,7 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoincrement: true,
+            autoIncrement: true
         },
         nombre: {
             type: dataTypes.STRING,
@@ -36,11 +36,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         created_at: {
             type: dataTypes.DATE,
-            allowNull: true
+           
         },
         updated_at: {
             type: dataTypes.DATE,
-            allowNull: true
+          
         },
     }
     let config = {

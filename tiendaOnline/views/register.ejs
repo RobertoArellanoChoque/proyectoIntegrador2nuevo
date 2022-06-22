@@ -18,40 +18,43 @@
 
                 <div class="cajaFormulario">
                     <label for="exampleInputEmail1" class="label">Correo Electrónico:</label>
-                    <input name="email" value="" type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input name="email" type="email" class="" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div id="emailHelp" class="letrasBold">Nunca compartiremos su correo electrónico con nadie más.</div>
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Contraseña:</label>
-                    <input type="password"  name="clave" value="" required class="" id="exampleInputPassword1">
+                    <input type="password"  name="clave" id="exampleInputPassword1">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Confirmar Contraseña:</label>
-                    <input type="password" name="reclave" value="" required class="" id="exampleInputPassword1">
+                    <input type="password" name="reclave" id="exampleInputPassword1">
                     <div id="emailHelp" class="letrasBold">Nunca compartiremos su contraseña con nadie más.</div>
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Nombre:</label>
-                    <input type="text" class=""  name="nombre" value="" required id="exampleInputPassword1">
+                    <input type="text" class=""  name="nombre" id="exampleInputPassword1">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Apellido:</label>
-                    <input type="text"  name="apellido" value="" required class="" id="exampleInputPassword1">
+                    <input type="text"  name="apellido" id="exampleInputPassword1">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputPassword1" class="label">Documento:</label>
-                    <input type="text"  name="documento" value="" required class="" id="exampleInputPassword1">
+                    <input type="text"  name="documento" id="exampleInputPassword1">
                 </div>
             <div class="cajaFormulario">
                     <label for="exampleInputIdNumber" class="label">Fecha de Nacimiento:</label>
-                    <input type="date"  name="fecha_de_nacimiento" value="" required class="" id="exampleInputDate">
+                    <input type="date"  name="fecha_de_nacimiento id="exampleInputDate">
                 </div>
                 <div class="cajaFormulario">
                     <label for="exampleInputIdNumber" class="label"> Profile Photo:</label>
-                     <input type="file" name="filename" value="" required >
+                     <input type="file" name="img">
+                     <% if(locals.errors) { %>
+                        <p> <%= errors.message %>  </p>
+                    <% } %>
                 </div>
 
-                <button type="submit" class="">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </section>
     </body>
