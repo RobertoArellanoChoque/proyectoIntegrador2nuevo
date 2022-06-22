@@ -16,7 +16,9 @@ const controladorUsuarios = {
         const id = req.params.id
         db.User.findByPk(id)
         .then( (data) => {
-            res.send(data)
+            res.render('profile', {
+                usuario: data
+            })
         })
         .catch((err)=>{
             console.log(err)
