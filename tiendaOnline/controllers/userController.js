@@ -63,7 +63,7 @@ let userController = {
 							fecha_de_nacimiento: req.body.fecha_de_nacimiento
 
 						}
-						db.User.create(users)
+						db.User.create(users) // raro, no convence
 							.then((userGuardado) => {
 								return res.redirect('/usuario/login')
 							})

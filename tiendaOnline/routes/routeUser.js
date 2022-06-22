@@ -14,23 +14,24 @@ let storage = multer.diskStorage({ //objeto literal dividido en dos partes
   })
   let upload = multer({ storage: storage });
 
-
+// rutas de usuario register
 router.get('/register', userController.register);
-router.post('/register', upload.single('profilePhoto'), userController.storeRegister );// ver esto
+router.post('/register', upload.single('profilePhoto'), userController.storeRegister );
 
 router.get('/', userController.index);
 
-router.get('/profile-edit', userController.edit);
+//ruta de usuario profile edit 
+router.get('/profile-edit/user:Id', userController.edit);//preguntar
 router.post('/profile-edit',upload.single('profilePhoto'), userController.edit ),
 
-
+//ruta de usuario login
 router.get('/login', userController.login);
-router.post('/login', userController.login);
+router.post('/login', userController.storeLogin);
 
 
 router.get('/profile', userController.profile);
 
-
+//ruta de logout
 router.get('/logout', userController.logout)
 
 
