@@ -9,7 +9,7 @@ let userController = {
 	},
 
 	register: function (req, res) {
-		return res.render('register.ejs');
+		return res.render('register');
 	},
 	storeRegister: function (req, res) { //VALIDACIONES: asegurarse que se complete el formulario
 		let errors = {} //configuracion de un objeto literal vacio
@@ -56,11 +56,10 @@ let userController = {
 							nombre: req.body.nombre,
 							apellido: req.body.apellido,
 							documento: req.body.documento,
+							fecha_de_nacimiento: req.body.fecha_de_nacimiento,
 							email: req.body.email,
 							clave: bcrypt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
-							img: req.file.filename,
-							fecha_de_nacimiento: req.body.fecha_de_nacimiento
-
+							img: req.file.filename
 						}
 						db.User.create(users) // raro, no convence
 							.then((userGuardado) => {
@@ -108,25 +107,26 @@ let userController = {
 	},
 	storeLogin: function (req, res) {
 		let errors = {}
-		db.users.findOne({
+		db.User.findOne({
 			where: [{
-				email: req.body.email,
+				email: req.body.email
 				}]
 		})
 			.then(function (users) {
 				if (users == null) {
 					errors.message = "El usuario no existe";
-					res.Locals.errors = errors;
+					res.locals.errors = errors;
 					return res.render('login')
-				} else if (bcypt.compareSync(req.body.clave, users.clave == false)) {
+				} else if (bcrypt.compareSync(req.body.clave, users.clave) == false) {
 					errors.message = "La contraseña es incorrecta"
-					res.Locals.errors = errors;
+					res.locals.errors = errors;
 					return res.render('login')
 				} else {
-					if (req.body.created_at !== undefined) { //no entiendo que hace el created at
+					req.session.user = users;
+
+					if (req.body.rememberme !== undefined) { //no entiendo que hace el created at
 						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 }) // a que se refiere el userId
 					}
-					req.session.users = users;
 					return res.redirect('/')
 				}
 			})
@@ -172,7 +172,9 @@ let userController = {
 	},
 	logout: function (req, res) {
 		req.session.destroy()
+		
 		res.clearCookie('userId')
+
 		res.redirect('/')
 	},
 

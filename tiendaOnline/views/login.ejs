@@ -6,7 +6,7 @@
 
 <body>
   <nav>
-    <%- include('partials/navBar')%>
+    <%- include('partials/navBarLoged')%>
   </nav>
 
   <h2 class="tituloForm">INGRESÁ TU USUARIO</h2>
@@ -14,7 +14,7 @@
 
   <section class="formulario">
 
-    <form action="/usuario" method="post" class="formularioPrincpal">
+    <form action="/usuario/login" method="post" class="formularioPrincpal">
       <div class="cajaFormulario">
         <label for="exampleInputEmail1" class="label">Email</label>
         <input type="email"  name="email" value="" required>
@@ -25,8 +25,8 @@
         <input type="password" class="form-control" name="clave" value="" required>
       </div>
       <div class="cajaFormulario">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="label" for="">Recuérdame</label>
+        <input type="checkbox" class="form-check-input" name="rememberme" id="exampleCheck1">
+        <label class="label">Recuérdame</label>
       </div>
       <div class="cajaFormulario" >
         <button type="submit" class="label2">INICIAR SESIÓN</button>

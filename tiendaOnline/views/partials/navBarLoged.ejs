@@ -1,16 +1,18 @@
 <div class="flexDeNavegador">
     <h1 class="logoPagina">
-        <a href="/loged" class="letrasLogo">SANCHO'S LIBRERY</a>
+        <a href="/" class="letrasLogo">SANCHO'S LIBRERY</a>
     </h1>
     <div class="flexDeNavegadorHijo" id="">
         <form class="" action="/productos/search-results">
             <input class="" type="search" placeholder="Buscar productos marcas y más.." aria-label="Search">
             <button class="" type="submit">Search</button>
         </form>
-        <ul class="linksDeNav" type="none">
+        <ul class="right-navbar">
+            <% if(locals.user) { %>
+            <ul class="linksDeNav" type="none">
             <li>
                 <a class="logoUsuario" aria-current="page" href="/usuario">
-                    <span class="material-icons">&#Xe7ff;</span>: <%= usuario.name %>
+                    <span class="material-icons">&#Xe7ff;</span>: <%= locals.user.nombre %>
                 </a>
             </li>
             <li>
@@ -18,29 +20,31 @@
                     <span class="material-icons">&#Xe3c9;</span>EDITAR PERFIL
                 </a>
             </li>
-            
         </ul>
         <ul class="linksDeNav" type="none">
-            <li>
-                <a class="logoUsuario" aria-current="page" href="/productos">
-                    <span class="material-icons">&#Xe1a1;</span>TODOS LOS PRODUCTOS
-                </a>
-            </li> 
             <li>
                 <a class="logoUsuario" aria-current="page" href="/productos/product-add">
                     <span class="material-icons">&#Xe147;</span>AGREGAR PRODUCTOS
                 </a>
             </li>              
-            
         </ul>
-        <ul class="linksDeNav" type="none">
-            <li>
-                <a class="logoUsuario" aria-current="page" href="/">
-                    <span class="material-icons">&#Xe9ba;</span>CERRAR SESIÓN
-                </a>
-            </li>         
-            
-        </ul>
+                <ul class="linksDeNav" type="none">
+                    <li>
+                        <form action="/usuario/logout" method="post">
+                            <button type="submit">
+                                CERRAR SESIÓN
+                            </button>
+                        </form>
+                    </li>  
+                </ul>
+            <% } else{ %>
+                <li>
+                    <a class="linksDeNav" href="/usuario/register">CREAR TU CUENTA</a>
+                </li>
+                <li>
+                    <a class="linksDeNav" aria-current="page" href="/usuario/login">INICIAR SESIÓN</a>
+                </li>
+            <% } %>
 
     </div>
 </div>

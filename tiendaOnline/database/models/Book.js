@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoincrement: true,
+            autoIncrement: true,
         },
         titulo: {
             type: dataTypes.STRING
@@ -29,12 +29,7 @@ module.exports = (sequelize, dataTypes) => {
         usuario_id: {
             type: dataTypes.INTEGER,
             allowNull: true
-        },
-        comentario_id: {
-            type: dataTypes.STRING,
-            allowNull: true
-       
-        },
+        }
     }
     let config = {
         tableName: 'libros',

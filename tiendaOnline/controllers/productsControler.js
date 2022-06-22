@@ -31,8 +31,8 @@ const controladorProudctos = {
                 ],
                 limit: 1,
                 include: [
-                    { association: 'usuarios' },
                     { association: 'comentarios' },
+                    { association: 'usuarios' }
                 ],
             })
                 .then((data) => {

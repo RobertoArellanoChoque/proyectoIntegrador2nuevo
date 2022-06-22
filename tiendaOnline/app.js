@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'arribaBoca',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true
 }))
 
 app.use(function(req, res, next){
@@ -46,7 +46,7 @@ app.use(function(req, res, next){
     //chequear que no tengamos usuario en sessión y si tengamos cookie
     if(req.session.user == undefined && req.cookies.userId !== undefined){
       //Buscar el usario de la base de datos
-         users.findByPk(req.cookies.userId)
+         db.User.findByPk(req.cookies.userId)
               .then(function(user){
                 //Dentro del then pasar al usuario a req.session.user
                 //Pasar al usuario locals.user
@@ -75,7 +75,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+/* app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -83,6 +83,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.send('error');
-});
+}); */
 
 module.exports = app;

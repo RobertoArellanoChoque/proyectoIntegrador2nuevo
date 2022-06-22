@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-let path = require('path');
 let multer = require('multer');
+let path = require('path');
 const userController = require('../controllers/userController');
 //configuracion multer
 let storage = multer.diskStorage({ //objeto literal dividido en dos partes
 	destination: (req, file, cb) => { //parte 1
-		  cb(null, path.join(__dirname, '../public/imges/users'));
+		  cb(null, path.join(__dirname, '../public/images/users'));
 	},
 	filename: (req, file, cb) => { //parte 2
 		  cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -32,7 +32,7 @@ router.post('/login', userController.storeLogin);
 router.get('/profile', userController.profile);
 
 //ruta de logout
-router.get('/logout', userController.logout)
+router.post('/logout', userController.logout)
 
 
 
