@@ -21,6 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         fecha_de_nacimiento: {
             type: dataTypes.DATE,
+            allowDefault: true
         },
         email: {
             type: dataTypes.STRING,
