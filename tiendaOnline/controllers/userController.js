@@ -108,8 +108,6 @@ let userController = {
 		}
 	},
 
-
-
 	login: function (req, res) {
 		return res.render('login');
 	},
@@ -144,14 +142,15 @@ let userController = {
 		return res.render('profile');
 	},
 	profileStore: function (req, res) {
+		let idUsuario = req.params.id; 
 		const user = {
 			nombre: req.body.nombre,
 			apellido: req.body.apellido,
 			documento: req.body.documento,
 			email: req.body.email,
-			clave: bcypyt.hashSync(req.body.clave, 10), // se le debe hacer el hasheo
-			img: req.file.filename,
-			fechaDeNacimiento: req.body.fecha_de_nacimiento
+			clave: req.body.clave, // se le debe hacer el hasheo
+			img: "fede",
+			fecha_de_nacimiento: req.body.fecha_de_nacimiento
 
 		}
 
@@ -163,16 +162,16 @@ let userController = {
 
 		db.User.update(user, {
 			where: {
-				id: req.session.user.id
+				id: idUsuario
 			}
 		})
 			.then(function () {
-
+				console.log(user)
 				user.id = req.session.user.id
 
 				req.session.user = user /* Probar sin esto o usando abajo el req.session.usser.id */
 
-				return res.redirect(`/profile/${user.id}`)
+				return res.redirect(`/info/${user.id}`)
 			})
 			.catch(error => {
 				console.log(error)
