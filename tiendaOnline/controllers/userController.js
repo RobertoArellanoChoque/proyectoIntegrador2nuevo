@@ -5,12 +5,12 @@ const Op = db.Sequelize.Op;
 
 let userController = {
 	index: function (req, res) {
-			const id = req.params.id
-			db.User.findByPk(id)
-			.then( (data) => {
+		const id = req.params.id
+		db.User.findByPk(id)
+			.then((data) => {
 				res.send(data)
 			})
-			.catch((err)=>{
+			.catch((err) => {
 				console.log(err)
 			})
 	},
@@ -23,19 +23,19 @@ let userController = {
 		if (req.body.email == "") { // si req.body.email es vacio señalar que es obligatorio qu este completo
 			errors.message = "El email es obligatorio";
 			res.locals.errors = errors;//guarda errors en locals
-			return res.render('register.ejs', {title: 'create una cuenta'})
+			return res.render('register.ejs', { title: 'create una cuenta' })
 		} else if (req.body.apellido == "") {
 			errors.message = "El apellido es obligatorio";
 			res.locals.errors = errors;
-			return res.render('register', {title: 'create una cuenta'})
+			return res.render('register', { title: 'create una cuenta' })
 
 		} else if (req.body.nombre == "") {
 			errors.message = "El nombre es obligatorio.";
 			res.locals.errors = errors;
-			return res.render('register', {title: 'create una cuenta'})
+			return res.render('register', { title: 'create una cuenta' })
 		} else if (req.body.clave == "") {
 			errors.message = "La contrasena es obligatoria";
-			return res.render('register', {title: 'create una cuenta'})
+			return res.render('register', { title: 'create una cuenta' })
 
 		} else if (req.body.reclave == "") {
 			errors.message = "La contrasena es obligatorio";
@@ -44,11 +44,11 @@ let userController = {
 			})
 		} else if (req.body.clave != req.body.reclave) {
 			errors.message = "Las contrasena no coinciden";
-			return res.render('register', {title: 'create una cuenta'})
+			return res.render('register', { title: 'create una cuenta' })
 			//Los return register te devulven a la pagina para que se complete lo que no se lleno previamente
 		} else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg') {
 			errors.message = "Las extensiones no coinciden";
-			return res.render('register', {title: 'create una cuenta'})
+			return res.render('register', { title: 'create una cuenta' })
 		} else {
 			db.User.findOne({
 				where: [{ email: req.body.email }]
@@ -87,15 +87,16 @@ let userController = {
 			} else {
 				db.User.findByPk(id, {
 					include: [
-						{ association: 'Book' },/* Relacion de productos con usuarios */
-						{ association: 'Comment' } /* Relacion de productos con comentarios */
+						{ association: 'libros' },/* Relacion de productos con usuarios */
+						{ association: 'comentarios' } /* Relacion de productos con comentarios */
 					]
 				})
 					.then((data) => {
+						console.log(data, 'fede');
 						if (data == null) {
 							return res.redirect('/')
 						} else {
-							return res.render('profileEdit.ejs', { data: data })
+							return res.render('profileEdit.ejs', { user: data })
 						}
 					})
 					.catch((err) => {
@@ -117,7 +118,7 @@ let userController = {
 		db.User.findOne({
 			where: [{
 				email: req.body.email
-				}]
+			}]
 		})
 			.then(function (users) {
 				if (users == null) {
@@ -131,8 +132,8 @@ let userController = {
 				} else {
 					req.session.user = users;
 
-					if (req.body.rememberme !== undefined) { 
-						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 }) 
+					if (req.body.rememberme !== undefined) {
+						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 })
 					}
 					return res.redirect('/')
 				}
@@ -179,7 +180,7 @@ let userController = {
 	},
 	logout: function (req, res) {
 		req.session.destroy()
-		
+
 		res.clearCookie('userId')
 
 		res.redirect('/')
