@@ -67,7 +67,22 @@ let id = req.params.id
                 console.log(err)
             })
 
-    }
+    },
+    detailEdit: function(req,res){
+        if(req.session.user){
+            let comment = {
+                texto_comentario: req.body.text,
+                usuario_id: req.session.user.id,
+                libro_id: req.params.id,
+            }
+
+        db.Comment.create(comment)
+        return res.redirect(`/`)
+
+        }else{
+            return res.redirect('/')
+        }
+   },
 
 };
 
