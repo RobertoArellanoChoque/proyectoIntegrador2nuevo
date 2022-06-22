@@ -12,6 +12,18 @@ const controladorUsuarios = {
             return res.render("index", { libro: data })
         })
     },
+    show: function (req, res) {
+        const id = req.params.id
+        db.User.findByPk(id)
+        .then( (data) => {
+            res.send(data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+},
+
+
 };
 
 module.exports = controladorUsuarios;

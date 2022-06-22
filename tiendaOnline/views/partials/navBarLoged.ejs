@@ -11,7 +11,7 @@
             <% if(locals.user) { %>
             <ul class="linksDeNav" type="none">
             <li>
-                <a class="logoUsuario" aria-current="page" href="/usuario">
+                <a class="logoUsuario" aria-current="page" href="/info/<%= locals.user.id  %> ">
                     <span class="material-icons">&#Xe7ff;</span>: <%= locals.user.nombre %>
                 </a>
             </li>

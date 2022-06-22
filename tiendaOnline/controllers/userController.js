@@ -5,7 +5,14 @@ const Op = db.Sequelize.Op;
 
 let userController = {
 	index: function (req, res) {
-		return res.render('/');
+			const id = req.params.id
+			db.User.findByPk(id)
+			.then( (data) => {
+				res.send(data)
+			})
+			.catch((err)=>{
+				console.log(err)
+			})
 	},
 
 	register: function (req, res) {
@@ -124,8 +131,8 @@ let userController = {
 				} else {
 					req.session.user = users;
 
-					if (req.body.rememberme !== undefined) { //no entiendo que hace el created at
-						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 }) // a que se refiere el userId
+					if (req.body.rememberme !== undefined) { 
+						res.cookie('userId', users.id, { maxAge: 1000 * 60 * 5 }) 
 					}
 					return res.redirect('/')
 				}
