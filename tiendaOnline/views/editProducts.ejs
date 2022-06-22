@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+
+
+    <body>
+        <nav>
+            <%- include('partials/navBarLoged')%>
+        </nav>
+        <section class="formulario">
+            <form method="POST" class="formularioPrincpal" enctype="multipart/form-data" action="/profile-edit">
+
+                <h2>Editá tu Perfil</h2>
+                <h4>Nombre:</h4>
+                <div- class="cajaFormulario">
+                    <input class="" type="text" placeholder="nombre" value="<%=user.nombre%> aria-label="Search">
+                    <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+                    <h4>Apellido:</h4>
+                <div- class="cajaFormulario">
+                    <input class="" type="text" placeholder="apellido" value="<%=user.apellido%> aria-label="Search">
+                    <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+                    <h4>Documento:</h4>
+                    <div- class="cajaFormulario">
+                        <input class="" type="text" placeholder="Documento" value="<%=user.documento%> aria-label="Search">
+                        <div class="" type="submit">Editar✏️⚙️</div>
+                        </div>
+
+                    <h4>Fecha de Nacimiento:</h4>
+                    <div class="cajaFormulario">
+                        <input class="" type="date" placeholder="fecha_de_nacimiento" value="<%=user.fecha_de_nacimiento%>  aria-label="Search">
+                        <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+                    <h4>Correo Electrónico:</h4>
+                    <div class="cajaFormulario">
+                        <input class="" type="email" placeholder="email" value="<%=user.email%> aria-label="Search">
+                        <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+                    <h4>Contraseña:</h4>
+                    <div class="cajaFormulario">
+                        <input class="" type="password" placeholder="password" value="<%=user.clave%>  aria-label="Search">
+                        <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+
+                    <h4>Foto de Perfil:</h4>
+                    <div class="cajaFormulario">
+                        <input class="" type="file" placeholder="profilePhoto" value="<%=user.img%>  aria-label="Search">
+                        <div class="" type="submit">Editar✏️⚙️</div>
+                    </div>
+                    <div>
+                        <button type="submit" class="">Submit</button>
+                    </div>
+            </form>
+        </section>
+    </body>
+    <div class="centrado">
+        <%- include('partials/footer')%>
+    </div>
+
+</html>
