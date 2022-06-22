@@ -16,33 +16,20 @@ const controladorUsuarios = {
         const id = req.params.id
         db.User.findByPk(id)
             .then((data) => {
-                res.send(data)
+                res.render('profile', {
+                    usuario: data
+                })
             })
             .catch((err) => {
                 console.log(err)
             })
     },
-    edit: function (req, res) {
-        const id = req.params.id
-        db.User.findByPk(id)
-            .then((data) => {
-                res.render('profileEdit', {user: data}),{
-
-                }
 
 
-                
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-
-
-    }
 }
 
-    module.exports = controladorUsuarios;
+
+module.exports = controladorUsuarios;
 
 
 
