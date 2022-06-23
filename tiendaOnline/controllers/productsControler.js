@@ -150,16 +150,43 @@ const controladorProudctos = {
                 })
         }
     },
-    detail: function (req, res) {
-        db.Book.findByPk(req.params.id)
-            .then((function(data) {
-                res.render('product', {libro : data})
-            }))
-            .catch((err) => {
-                console.log(err)
+    detail: function(req, res){
+        const id = req.params.id;
+        
+        db.Book.findByPk(id, {
+            include: [  
+                { association: 'comentarios',
+                    include:[{association: 'usuarios'}] 
+                },                           
+                {association: 'usuarios'}
+            ],
+        })
+            .then((data) => {
+                if (data == null) {
+                    return res.redirect('/')
+                } else {
+                    return res.render('product', { libro: data })
+                }
             })
+            .catch((err)=>{
+              console.log(err)
+          })
+    },
+    detailEdit: function(req,res){
+        if(req.session.user){
+            let comment = {
+                texto_comentario: req.body.text,
+                usuario_id: req.session.user.id,
+                libro_id: req.params.id,
+            }
 
-    }
+        db.Comment.create(comment)
+        return res.redirect(`/`)
+
+        }else{
+            return res.redirect('/')
+        }
+   },
 
 };
 
