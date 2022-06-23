@@ -20,11 +20,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         created_at: {
             type: dataTypes.DATE,
-            allowNull: false
+           
         },
         updated_at: {
             type: dataTypes.DATE,
-            allowNull: false
+           
         },
         usuario_id: {
             type: dataTypes.INTEGER,

@@ -34,7 +34,7 @@ const controladorProudctos = {
         } else if (req.file == undefined) {
             errors.message = "La imagen es obligatoria.";
             res.locals.errors = errors;
-            return res.render('addProducts', { title: 'Agregar productos' })
+            return res.render('productAdd', { title: 'Agregar productos' })
 
         } else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype !== 'image/jpeg') {
             errors.message = "Debe subir una imagen en formato jpg, jpeg o png.";
@@ -44,16 +44,14 @@ const controladorProudctos = {
         } else {
             //1) Obtener datos del formulario
             let data = req.body;
-
             let libro = {
-                usuario_id: req.session.users.id,
+                usuario_id: req.session.user.id,
                 titulo: data.titulo,
                 img: req.file.filename,
                 descripcion: data.descripcion,
             }
-
             // 3) Guardar libro
-            Producto.create(libro)
+            db.Book.create(libro)
             return res.redirect('/')
         }
 
@@ -61,16 +59,16 @@ const controladorProudctos = {
     destroy: function (req, res) {
         let productoABorrar = req.params.id;
         
-        Producto.findByPk(productoABorrar)
+        db.Book.findByPk(productoABorrar)
         .then(data =>{
-            if(req.session.user.id == data.idUsuario){ 
+            if(req.session.user.id == data.users){ 
                 Comentario.destroy({
                     where: [
                         {idProducto: productoABorrar}
                     ] //where
                 })
                 .then( function(){
-                    Producto.destroy({
+                    db.Book.destroy({
                         where: [
                             { id: productoABorrar },
                         ],
@@ -98,12 +96,12 @@ const controladorProudctos = {
         let productId = req.params.id;
 
         if(req.session.user){
-            Producto.findByPk(productId)
+            db.Book.findByPk(productId)
                 .then(data=>{
-                    if(req.session.user.id == data.idUsuario){
+                    if(req.session.user.id == data.user){
                         return res.render('editProducts', { title: "Editar producto", resultado: data })
                     } else {
-                        return res.redirect('/')
+                        return res.redirect('/edit-products')
                     }
                 })
                 .catch(e => { console.log(e)
@@ -153,16 +151,7 @@ const controladorProudctos = {
         }
     },
     detail: function (req, res) {
-let id = req.params.id
-
-        db.Book.findByPk(id, {
-            include: [
-                { association: 'comentarios',
-                include: {association: 'usuarios'}
-             },
-                { association: 'usuarios' }
-            ],
-        })
+        db.Book.findByPk(req.params.id)
             .then((function(data) {
                 res.render('product', {libro : data})
             }))
@@ -170,22 +159,7 @@ let id = req.params.id
                 console.log(err)
             })
 
-    },
-    detailEdit: function(req,res){
-        if(req.session.user){
-            let comment = {
-                texto_comentario: req.body.text,
-                usuario_id: req.session.user.id,
-                libro_id: req.params.id,
-            }
-
-        db.Comment.create(comment)
-        return res.redirect(`/`)
-
-        }else{
-            return res.redirect('/')
-        }
-   },
+    }
 
 };
 
