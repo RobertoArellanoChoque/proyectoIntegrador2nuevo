@@ -9,8 +9,9 @@
 			<%- include('partials/navBarLoged')%>
 		</nav>
 
-		
+
 		<section class="primerasection">
+			<% if(locals.user){ %>
 				<article class="segundaSectionInicio">
 					<h3 class=tituoloLibro>
 						<%= libro.titulo %>
@@ -18,27 +19,52 @@
 					<a href="/productos/detalle/<%= libro.id %> ">
 						<img class="imagen" src="/images/products/<%=libro.img%>">
 					</a>
-					<p>DESCRIPCIÓN : <%= libro.descripcion %> </p>
-				</article >
-				
-				<% if(locals.user){ %>
-					<article class="segundaSectionInicio" >
+					<p>DESCRIPCIÓN : <%= libro.descripcion %>
+					</p>
+					<form class="form" action="" method="POST">
+						<input class="" type="text" name="text" value="" placeholder="Agregar comentario">
+						<button type="submit" class="">AGREGAR COMENTARIO</button>
+				</article>
+				<article class="segundaSectionInicio">
 					<h3>COMENTARIOS : </h3>
 					<% for (let i=0 ; i < libro.comentarios.length; i++ ) { %>
-						<p> <%= libro.comentarios[i].usuarios.nombre %> comento: <%= libro.comentarios[i].texto_comentario %> </p>
-						<% } %>
-						<form class="form" action="" method="POST">
-							<input class="" type="text"  name="text" value="" placeholder="Agregar comentario">
-							<button type="submit" class="">AGREGAR COMENTARIO</button>
+						<% if(locals.user.id==libro.comentarios[i].usuarios.id) { %>
+							<p>
+								Tu comentaste: <%=libro.comentarios[i].texto_comentario %>
+							</p>
+							<% } else{ %>
+								<%= libro.comentarios[i].usuarios.nombre %> comento: <%=
+										libro.comentarios[i].texto_comentario %>
+										<% } %>
+											<% } %>
 				</article>
+
+
 				<% } else { %>
-					<article class="segundaSectionInicio" >
+					<article class="segundaSectionInicio">
+						<h3 class=tituoloLibro>
+							<%= libro.titulo %>
+						</h3>
+						<a href="/productos/detalle/<%= libro.id %> ">
+							<img class="imagen" src="/images/products/<%=libro.img%>">
+						</a>
+						<p>DESCRIPCIÓN : <%= libro.descripcion %>
+						</p>
+					</article>
+					<article class="segundaSectionInicio">
 						<h3>COMENTARIOS : </h3>
 						<% for (let i=0 ; i < libro.comentarios.length; i++ ) { %>
-							<p> <%= libro.comentarios[i].usuarios.nombre %> comento: <%= libro.comentarios[i].texto_comentario %> </p>
+							<p>
+								<%= libro.comentarios[i].usuarios.nombre %> comento: <%=
+										libro.comentarios[i].texto_comentario %>
+							</p>
 							<% } %>
-				<%}%> 
-				
+
+					</article>
+
+					<%}%>
+
+
 		</section>
 
 
