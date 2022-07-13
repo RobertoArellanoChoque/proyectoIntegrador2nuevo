@@ -27,3 +27,58 @@ USE `BataBase`;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-06-23 23:33:38
+
+CREATE TABLE usuarios (
+  id int(10) primary key NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) NOT NULL,
+  apellido varchar(50) NOT NULL,
+  documento int(10) UNSIGNED NOT NULL,
+  fecha_de_nacimiento DATE NOT NULL,
+  email varchar(100) NOT NULL,
+  clave varchar(200) NOT NULL,
+  img varchar(255) DEFAULT NULL,
+  created_at date DEFAULT NULL,
+  updated_at date DEFAULT NULL
+);
+
+
+
+
+
+CREATE TABLE libros (
+  id int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  titulo varchar(50) NOT NULL,
+  descripcion varchar(200) NOT NULL,
+  img varchar(50) DEFAULT NULL,
+  created_at date DEFAULT NULL,
+  updated_at  date DEFAULT NULL,
+  usuario_id int(10)  NULL,
+  
+  FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+  
+); 
+
+
+
+CREATE TABLE comentarios (
+  id int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  texto_comentario varchar(200) NOT NULL,
+  created_at date DEFAULT NULL,
+  updated_at date DEFAULT NULL,
+  usuario_id int(10) NOT NULL,
+  libro_id int(10) NOT NULL,
+
+ 
+   FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+   FOREIGN KEY (libro_id) REFERENCES libros (id)
+); 
+
+
+
+CREATE TABLE seguidores (
+id INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+usuario_id  INT(10)  NOT NULL,
+
+FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+
+)
